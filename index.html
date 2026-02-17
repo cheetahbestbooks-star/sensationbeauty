@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théobroma Beauty | Stratégie E-Commerce & Growth 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cacao-dark: #2D1B14;
+            --cacao-rich: #4A2C2A;
+            --nude-cream: #F5EDE4;
+            --nude-soft: #EDE5DB;
+            --lavender-mist: #E8E4F0;
+            --gold-accent: #C9A87C;
+            --text-dark: #1A1A1A;
+            --text-muted: #6B6B6B;
+            --white: #FFFFFF;
+            --success-green: #4A7C59;
+            --alert-coral: #E07A5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--nude-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* === PRELOADER === */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cacao-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+            color: var(--nude-cream);
+        }
+
+        .preloader-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .preloader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .preloader-progress {
+            height: 100%;
+            background: var(--gold-accent);
+            width: 0;
+            animation: loadProgress 2s ease-in-out forwards;
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === NAVIGATION === */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(45, 27, 20, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 4rem;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--cacao-dark) 0%, var(--cacao-rich) 50%, #3D2420 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* Elegant stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        .star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, rgba(201,168,124,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(201, 168, 124, 0.4);
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .hero-title span {
+            color: var(--gold-accent);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .hero-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.1s forwards;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-accent), var(--nude-cream));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cacao-dark);
+            font-weight: 600;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .author-role {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold-accent), transparent);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* === SECTIONS === */
+        section {
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--gold-accent);
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--cacao-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold-accent);
+            margin: 1.5rem auto;
+        }
+
+        /* === EXECUTIVE SUMMARY === */
+        .executive {
+            background: var(--white);
+        }
+
+        .executive-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .executive-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--cacao-dark);
+        }
+
+        .executive-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .executive-highlight {
+            background: linear-gradient(135deg, var(--lavender-mist), var(--nude-soft));
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .executive-highlight h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--cacao-dark);
+        }
+
+        .opportunity-list {
+            list-style: none;
+        }
+
+        .opportunity-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .opportunity-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+            font-weight: 600;
+        }
+
+        .stats-card {
+            background: var(--cacao-dark);
+            border-radius: 20px;
+            padding: 3rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(201,168,124,0.1) 0%, transparent 70%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* === MARKET ANALYSIS === */
+        .market {
+            background: var(--nude-soft);
+        }
+
+        .market-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .market-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid transparent;
+        }
+
+        .market-card:hover {
+            transform: translateY(-10px);
+            background: var(--cacao-dark);
+            border-color: var(--gold-accent);
+            box-shadow: 0 30px 60px rgba(45, 27, 20, 0.2);
+        }
+
+        .market-card:hover h3 {
+            color: var(--white);
+        }
+
+        .market-card:hover p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .market-card:hover .market-stat-value {
+            color: var(--gold-accent);
+        }
+
+        .market-card:hover .market-stat-unit {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .market-card:hover .market-card-icon {
+            background: linear-gradient(135deg, var(--gold-accent), var(--cacao-rich));
+            transform: scale(1.1);
+        }
+
+        .market-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--lavender-mist), var(--nude-cream));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .market-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--cacao-dark);
+            transition: color 0.5s ease;
+        }
+
+        .market-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.5s ease;
+        }
+
+        .market-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .market-stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--cacao-dark);
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+
+        .market-stat-unit {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: color 0.5s ease;
+        }
+
+        /* === TIKTOK OPPORTUNITY === */
+        .tiktok {
+            background: linear-gradient(180deg, var(--cacao-dark) 0%, #1a1a2e 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tiktok::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(255, 0, 80, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 242, 234, 0.1) 0%, transparent 50%);
+        }
+
+        .tiktok .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tiktok .section-title {
+            color: var(--white);
+        }
+
+        .tiktok-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tiktok-alert {
+            background: linear-gradient(135deg, rgba(255, 0, 80, 0.2), rgba(0, 242, 234, 0.2));
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 2rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tiktok-alert-icon {
+            font-size: 3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .tiktok-alert h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tiktok-alert p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .tiktok-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .tiktok-timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-accent), rgba(255,255,255,0.3));
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 60px;
+            height: 60px;
+            background: var(--cacao-dark);
+            border: 2px solid var(--gold-accent);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--gold-accent);
+            transform: scale(1.1);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* === BENCHMARK === */
+        .benchmark {
+            background: var(--white);
+        }
+
+        .benchmark-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--nude-cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(45, 27, 20, 0.08);
+        }
+
+        .benchmark-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            background: var(--cacao-dark);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .benchmark-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .benchmark-row:hover {
+            background: var(--white);
+        }
+
+        .benchmark-row.highlight {
+            background: linear-gradient(90deg, rgba(201, 168, 124, 0.1), transparent);
+        }
+
+        .brand-cell {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--lavender-mist);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--cacao-dark);
+        }
+
+        .brand-name {
+            font-weight: 500;
+        }
+
+        .benchmark-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cacao-dark);
+        }
+
+        .benchmark-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-high {
+            background: rgba(74, 124, 89, 0.15);
+            color: var(--success-green);
+        }
+
+        .badge-medium {
+            background: rgba(201, 168, 124, 0.2);
+            color: var(--gold-accent);
+        }
+
+        .badge-opportunity {
+            background: rgba(224, 122, 95, 0.15);
+            color: var(--alert-coral);
+        }
+
+        /* === STRATEGY === */
+        .strategy {
+            background: var(--nude-soft);
+        }
+
+        .strategy-phases {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .phase {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .phase:last-child {
+            border-bottom: none;
+        }
+
+        .phase-marker {
+            text-align: center;
+        }
+
+        .phase-number {
+            width: 80px;
+            height: 80px;
+            background: var(--cacao-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .phase-number span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--gold-accent);
+        }
+
+        .phase-days {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .phase-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--cacao-dark);
+        }
+
+        .phase-content > p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .action-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 3px solid var(--gold-accent);
+            transition: all 0.4s ease;
+        }
+
+        .action-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 15px 40px rgba(45, 27, 20, 0.15);
+            background: var(--cacao-dark);
+            border-left-color: var(--gold-accent);
+        }
+
+        .action-card:hover h4 {
+            color: var(--white);
+        }
+
+        .action-card:hover p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .action-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--cacao-dark);
+            transition: color 0.4s ease;
+        }
+
+        .action-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: color 0.4s ease;
+        }
+
+        /* === PROJECTIONS === */
+        .projections {
+            background: linear-gradient(135deg, var(--cacao-dark) 0%, var(--cacao-rich) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projections .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .projections .section-title {
+            color: var(--white);
+        }
+
+        .projection-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projection-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .projection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .projection-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .projection-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-10px);
+        }
+
+        .projection-kpi {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-accent);
+            margin-bottom: 1rem;
+        }
+
+        .projection-current {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .projection-target {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .projection-growth {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(74, 124, 89, 0.3);
+            color: #7CBA8A;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .projection-disclaimer {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .projection-disclaimer strong {
+            color: var(--gold-accent);
+        }
+
+        /* === WHY ME === */
+        .why-me {
+            background: var(--white);
+        }
+
+        .why-me-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            background: var(--nude-cream);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .profile-visual {
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-accent), var(--cacao-rich));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 2px solid var(--gold-accent);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .profile-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--cacao-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .profile-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--cacao-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .match-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        .match-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--lavender-mist);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .match-text h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--cacao-dark);
+        }
+
+        .match-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .skills-showcase {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--nude-cream);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            background: var(--cacao-dark);
+            box-shadow: 0 15px 30px rgba(45, 27, 20, 0.2);
+        }
+
+        .skill-item:hover .skill-name {
+            color: var(--white);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--cacao-dark);
+            transition: color 0.4s ease;
+        }
+
+        /* === CTA === */
+        .cta {
+            background: linear-gradient(135deg, var(--lavender-mist) 0%, var(--nude-cream) 100%);
+            text-align: center;
+            padding: 6rem 4rem;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--cacao-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 3rem;
+            background: var(--cacao-dark);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: var(--cacao-rich);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(45, 27, 20, 0.3);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--cacao-dark);
+            color: var(--white);
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* === ANIMATIONS ON SCROLL === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            section {
+                padding: 5rem 2rem;
+            }
+
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .executive-grid,
+            .profile-card {
+                grid-template-columns: 1fr;
+            }
+
+            .market-cards,
+            .action-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .projection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tiktok-timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .tiktok-timeline::before {
+                display: none;
+            }
+
+            .skills-showcase {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .benchmark-header,
+            .benchmark-row {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .benchmark-header > *:nth-child(4),
+            .benchmark-header > *:nth-child(5),
+            .benchmark-row > *:nth-child(4),
+            .benchmark-row > *:nth-child(5) {
+                display: none;
+            }
+
+            .phase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .match-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tiktok-alert {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">THÉOBROMA × SONIA</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">STRATÉGIE 2026</a>
+        <ul class="nav-links">
+            <li><a href="#executive">Synthèse</a></li>
+            <li><a href="#market">Marché</a></li>
+            <li><a href="#tiktok">TikTok Shop</a></li>
+            <li><a href="#strategy">Plan d'action</a></li>
+            <li><a href="#why-me">Profil</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="stars">
+            <div class="star" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+            <div class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+            <div class="star" style="top: 35%; left: 25%; animation-delay: 1s;"></div>
+            <div class="star" style="top: 15%; left: 60%; animation-delay: 1.5s;"></div>
+            <div class="star" style="top: 50%; left: 90%; animation-delay: 2s;"></div>
+            <div class="star" style="top: 70%; left: 10%; animation-delay: 2.5s;"></div>
+            <div class="star" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+            <div class="star" style="top: 25%; left: 45%; animation-delay: 3.5s;"></div>
+            <div class="star" style="top: 60%; left: 35%; animation-delay: 1.2s;"></div>
+            <div class="star" style="top: 45%; left: 75%; animation-delay: 2.2s;"></div>
+            <div class="star" style="top: 85%; left: 50%; animation-delay: 0.8s;"></div>
+            <div class="star" style="top: 5%; left: 30%; animation-delay: 1.8s;"></div>
+        </div>
+        <div class="hero-particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 35%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 65%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">Dossier de Candidature • Février 2026</span>
+            <h1 class="hero-title">
+                E-Commerce & Growth<br>
+                <span>Strategy</span> pour Théobroma Beauty
+            </h1>
+            <p class="hero-subtitle">
+                Conquérir TikTok Shop Europe et scaler l'acquisition digitale 
+                pour devenir la référence Clean Beauty suisse
+            </p>
+            <div class="hero-author">
+                <div class="author-avatar">SC</div>
+                <div class="author-info">
+                    <div class="author-name">Sonia Catic</div>
+                    <div class="author-role">Digital Marketing & Growth Specialist</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Explorer</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="executive" id="executive">
+        <div class="section-header">
+            <div class="section-number">01</div>
+            <h2 class="section-title">Synthèse Exécutive</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="executive-grid reveal">
+            <div class="executive-text">
+                <h3>Théobroma Beauty est à un point d'inflexion stratégique</h3>
+                <p>
+                    Avec une note parfaite <strong>100/100 sur Yuka</strong>, des certifications 
+                    <strong>Ecocert & Cosmébio</strong>, et un positionnement premium unique au cacao, 
+                    Théobroma possède tous les atouts pour devenir la marque Clean Beauty référente 
+                    sur les marchés francophones et germanophones.
+                </p>
+                <p>
+                    Le timing est <strong>idéal</strong> : TikTok Shop vient de lancer en France, 
+                    Allemagne et Italie (mars 2025). Les early adopters beauty comme NIVEA et Cosnova 
+                    captent déjà des parts de marché significatives. Théobroma doit agir maintenant.
+                </p>
+                <div class="executive-highlight">
+                    <h4>Les 4 opportunités clés que j'identifie</h4>
+                    <ul class="opportunity-list">
+                        <li><strong>TikTok Shop Europe</strong> — Canal inexploité avec potentiel viral (skincare = catégorie #1)</li>
+                        <li><strong>Paid Media complet</strong> — Meta + Google + Pinterest pour une acquisition multi-canal scalable</li>
+                        <li><strong>Expansion DACH</strong> — Le marché allemand est mûr pour la Clean Beauty premium</li>
+                        <li><strong>Stratégie Phygital</strong> — Cohérence digital/retail pour accompagner l'expansion en points de vente</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stats-card">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 2rem; position: relative; z-index: 10;">Chiffres clés du marché</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">$2.8B</span>
+                        <span class="stat-label">Clean Beauty Europe 2025</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">13.8%</span>
+                        <span class="stat-label">CAGR jusqu'en 2033</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+22%</span>
+                        <span class="stat-label">Ventes beauty via TikTok</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">72M</span>
+                        <span class="stat-label">Utilisateurs TikTok Shop EU</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Analysis -->
+    <section class="market" id="market">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Analyse du Marché</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="market-cards">
+            <div class="market-card reveal">
+                <div class="market-card-icon">🌿</div>
+                <h3>Clean Beauty Europe</h3>
+                <p>Le marché européen de la clean beauty affiche la croissance la plus forte après l'Asie-Pacifique. Les consommateurs privilégient transparence et efficacité prouvée.</p>
+                <div class="market-stat">
+                    <span class="market-stat-value">$9.67B</span>
+                    <span class="market-stat-unit">projection 2033</span>
+                </div>
+            </div>
+            <div class="market-card reveal" style="animation-delay: 0.2s;">
+                <div class="market-card-icon">🇨🇭</div>
+                <h3>Avantage Swiss Made</h3>
+                <p>Le label suisse confère une crédibilité premium immédiate. 60% du coût de revient en Suisse = argument différenciant vs. concurrence française.</p>
+                <div class="market-stat">
+                    <span class="market-stat-value">+15%</span>
+                    <span class="market-stat-unit">premium price accepté</span>
+                </div>
+            </div>
+            <div class="market-card reveal" style="animation-delay: 0.4s;">
+                <div class="market-card-icon">📱</div>
+                <h3>Social Commerce</h3>
+                <p>38% des achats clean beauty se font online. TikTok représente désormais le 1er canal de découverte produit pour les 18-34 ans.</p>
+                <div class="market-stat">
+                    <span class="market-stat-value">83%</span>
+                    <span class="market-stat-unit">découvrent sur TikTok</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TikTok Opportunity -->
+    <section class="tiktok" id="tiktok">
+        <div class="stars">
+            <div class="star" style="top: 15%; left: 5%; animation-delay: 0.3s;"></div>
+            <div class="star" style="top: 25%; left: 95%; animation-delay: 1.1s;"></div>
+            <div class="star" style="top: 60%; left: 8%; animation-delay: 2.1s;"></div>
+            <div class="star" style="top: 80%; left: 92%; animation-delay: 0.7s;"></div>
+            <div class="star" style="top: 40%; left: 3%; animation-delay: 1.9s;"></div>
+            <div class="star" style="top: 70%; left: 97%; animation-delay: 2.8s;"></div>
+        </div>
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <h2 class="section-title">L'Opportunité TikTok Shop</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="tiktok-content">
+            <div class="tiktok-alert reveal">
+                <div class="tiktok-alert-icon">⚡</div>
+                <div>
+                    <h3>Fenêtre d'opportunité limitée</h3>
+                    <p>TikTok Shop a lancé en France, Allemagne et Italie le <strong>31 mars 2025</strong>. Les marques qui s'installent maintenant captent les premiers utilisateurs et bénéficient de l'algorithme favorable aux nouveaux sellers.</p>
+                </div>
+            </div>
+            
+            <div class="tiktok-timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot">🚀</div>
+                    <div class="timeline-date">Mars 2025</div>
+                    <div class="timeline-title">Lancement EU</div>
+                    <div class="timeline-desc">TikTok Shop ouvre en FR/DE/IT avec NIVEA, essence, Catrice</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">📈</div>
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-title">Early Adopters</div>
+                    <div class="timeline-desc">Les marques agiles captent 70% de la visibilité organique</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">🎯</div>
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-title">Saturation</div>
+                    <div class="timeline-desc">Coût d'acquisition augmente, barrière à l'entrée plus haute</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">✨</div>
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-title">Consolidation</div>
+                    <div class="timeline-desc">Les leaders établis dominent, late comers galèrent</div>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3rem; margin-top: 3rem;" class="reveal">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 2rem; text-align: center;">Pourquoi Théobroma est parfait pour TikTok Shop</h3>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💯</div>
+                        <div style="font-size: 0.9rem; color: var(--gold-accent); margin-bottom: 0.5rem;">Score Yuka</div>
+                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Argument viral ultime — les utilisateurs adorent montrer leurs scores</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🍫</div>
+                        <div style="font-size: 0.9rem; color: var(--gold-accent); margin-bottom: 0.5rem;">Storytelling Cacao</div>
+                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Ingrédient unique et visuellement impactant pour les vidéos</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✨</div>
+                        <div style="font-size: 0.9rem; color: var(--gold-accent); margin-bottom: 0.5rem;">Résultats en 14 jours</div>
+                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Parfait pour les formats before/after qui performent sur TikTok</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
+                        <div style="font-size: 0.9rem; color: var(--gold-accent); margin-bottom: 0.5rem;">Prix accessible</div>
+                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">CHF 27-49 = sweet spot pour l'achat impulsif TikTok</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark -->
+    <section class="benchmark" id="benchmark">
+        <div class="section-header">
+            <div class="section-number">04</div>
+            <h2 class="section-title">Benchmark Concurrentiel</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="benchmark-table reveal">
+            <div class="benchmark-header">
+                <span>Marque</span>
+                <span>Instagram</span>
+                <span>TikTok Shop</span>
+                <span>Positionnement</span>
+                <span>Opportunité</span>
+            </div>
+            <div class="benchmark-row highlight">
+                <div class="brand-cell">
+                    <div class="brand-logo" style="background: linear-gradient(135deg, var(--gold-accent), var(--cacao-rich)); color: white;">TB</div>
+                    <span class="brand-name">Théobroma Beauty</span>
+                </div>
+                <span class="benchmark-value">29K</span>
+                <span class="benchmark-badge badge-opportunity">À lancer</span>
+                <span>Premium Swiss Clean</span>
+                <span class="benchmark-badge badge-high">Énorme</span>
+            </div>
+            <div class="benchmark-row">
+                <div class="brand-cell">
+                    <div class="brand-logo">TY</div>
+                    <span class="brand-name">Typology</span>
+                </div>
+                <span class="benchmark-value">~500K</span>
+                <span class="benchmark-badge badge-medium">Actif FR</span>
+                <span>Minimaliste FR</span>
+                <span class="benchmark-badge badge-medium">Moyenne</span>
+            </div>
+            <div class="benchmark-row">
+                <div class="brand-cell">
+                    <div class="brand-logo">TO</div>
+                    <span class="brand-name">The Ordinary</span>
+                </div>
+                <span class="benchmark-value">~3M</span>
+                <span class="benchmark-badge badge-high">Leader</span>
+                <span>Science Low-cost</span>
+                <span class="benchmark-badge badge-medium">Saturé</span>
+            </div>
+            <div class="benchmark-row">
+                <div class="brand-cell">
+                    <div class="brand-logo">WE</div>
+                    <span class="brand-name">Weleda</span>
+                </div>
+                <span class="benchmark-value">~400K</span>
+                <span class="benchmark-badge badge-opportunity">Absent</span>
+                <span>Heritage Naturel</span>
+                <span class="benchmark-badge badge-medium">Niche</span>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;" class="reveal">
+            <em>Théobroma a un avantage unique : le seul score 100/100 Yuka parmi les marques suisses premium</em>
+        </p>
+    </section>
+
+    <!-- Strategy -->
+    <section class="strategy" id="strategy">
+        <div class="section-header">
+            <div class="section-number">05</div>
+            <h2 class="section-title">Plan d'Action 90 Jours</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="strategy-phases">
+            <div class="phase reveal">
+                <div class="phase-marker">
+                    <div class="phase-number"><span>1</span></div>
+                    <div class="phase-days">Jours 1-30</div>
+                </div>
+                <div class="phase-content">
+                    <h3>Foundation & Quick Wins</h3>
+                    <p>Poser les bases techniques et capturer les opportunités immédiates d'optimisation.</p>
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <h4>🔧 Audit Shopify UX</h4>
+                            <p>Analyse du parcours conversion, identification des friction points, A/B tests checkout</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>🎯 Setup TikTok Shop</h4>
+                            <p>Configuration compte seller, KYB verification, catalogue produits, logistique fulfillment</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>📊 Restructuration Ads</h4>
+                            <p>Audit Meta & Google existants, mise en place structure campagnes scalable</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase reveal">
+                <div class="phase-marker">
+                    <div class="phase-number"><span>2</span></div>
+                    <div class="phase-days">Jours 31-60</div>
+                </div>
+                <div class="phase-content">
+                    <h3>Scaling & Acquisition</h3>
+                    <p>Déployer les campagnes d'acquisition à grande échelle et activer TikTok Shop.</p>
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <h4>📱 Lancement TikTok Shop</h4>
+                            <p>Premiers LIVEs shopping, programme affiliés créateurs, contenu shoppable natif</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>🚀 Scale Paid Media</h4>
+                            <p>Meta + Google + Pinterest : prospection, retargeting dynamique, creative testing</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>💰 Bundles & Conversion</h4>
+                            <p>Stratégie offres groupées, upsell routines, optimisation panier moyen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase reveal">
+                <div class="phase-marker">
+                    <div class="phase-number"><span>3</span></div>
+                    <div class="phase-days">Jours 61-90</div>
+                </div>
+                <div class="phase-content">
+                    <h3>Expansion & Optimisation</h3>
+                    <p>Ouvrir de nouveaux marchés et affiner la machine d'acquisition.</p>
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <h4>🇩🇪 Expansion DACH</h4>
+                            <p>Localisation contenu allemand, campagnes dédiées marché germanophone, prep retail DACH</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>📦 Amazon + Marketplaces</h4>
+                            <p>Setup Amazon DE/FR, optimisation listings, stratégie PPC, préparation retail partners</p>
+                        </div>
+                        <div class="action-card">
+                            <h4>🔗 Alignement Phygital</h4>
+                            <p>Cohérence digital/retail, supports pour points de vente, stratégie omnicanale unifiée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projections -->
+    <section class="projections" id="projections">
+        <div class="stars">
+            <div class="star" style="top: 20%; left: 10%; animation-delay: 0.4s;"></div>
+            <div class="star" style="top: 30%; left: 85%; animation-delay: 1.2s;"></div>
+            <div class="star" style="top: 70%; left: 15%; animation-delay: 2.4s;"></div>
+            <div class="star" style="top: 50%; left: 90%; animation-delay: 0.9s;"></div>
+            <div class="star" style="top: 80%; left: 5%; animation-delay: 1.7s;"></div>
+        </div>
+        <div class="section-header">
+            <div class="section-number">06</div>
+            <h2 class="section-title">Objectifs & Projections</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projection-grid">
+            <div class="projection-card reveal">
+                <div class="projection-kpi">Trafic Site</div>
+                <div class="projection-current">Actuel : ~25K/mois*</div>
+                <div class="projection-target">+50%</div>
+                <div class="projection-growth">6 mois</div>
+            </div>
+            <div class="projection-card reveal" style="animation-delay: 0.1s;">
+                <div class="projection-kpi">Taux Conversion</div>
+                <div class="projection-current">Benchmark : 1.5-2%</div>
+                <div class="projection-target">2.5%</div>
+                <div class="projection-growth">Objectif</div>
+            </div>
+            <div class="projection-card reveal" style="animation-delay: 0.2s;">
+                <div class="projection-kpi">ROAS Meta</div>
+                <div class="projection-current">À mesurer</div>
+                <div class="projection-target">4x</div>
+                <div class="projection-growth">Cible</div>
+            </div>
+            <div class="projection-card reveal" style="animation-delay: 0.3s;">
+                <div class="projection-kpi">CA TikTok Shop</div>
+                <div class="projection-current">Actuel : CHF 0</div>
+                <div class="projection-target">15K</div>
+                <div class="projection-growth">/mois à 6 mois</div>
+            </div>
+        </div>
+        <div class="projection-disclaimer reveal">
+            <strong>Note de transparence :</strong> Ces projections sont des objectifs réalistes basés sur les benchmarks du secteur 
+            et ma compréhension de votre positionnement. Les chiffres actuels (*) sont des estimations — je pourrai affiner 
+            ces objectifs une fois que j'aurai accès à vos analytics réelles.
+        </div>
+    </section>
+
+    <!-- Why Me -->
+    <section class="why-me" id="why-me">
+        <div class="section-header">
+            <div class="section-number">07</div>
+            <h2 class="section-title">Pourquoi Moi</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="why-me-content">
+            <div class="profile-card reveal">
+                <div class="profile-visual">
+                    <div class="profile-avatar">SC</div>
+                    <h3 class="profile-name">Sonia Catic</h3>
+                    <p class="profile-title">Digital Marketing & Automation Specialist</p>
+                </div>
+                <div class="profile-details">
+                    <h3>Un profil aligné avec vos besoins</h3>
+                    <div class="match-grid">
+                        <div class="match-item">
+                            <div class="match-icon">🌸</div>
+                            <div class="match-text">
+                                <h4>Expérience Beauty B2C</h4>
+                                <p>3 ans chez Buzz Beauty (Suisse) — même univers beauté/wellness</p>
+                            </div>
+                        </div>
+                        <div class="match-item">
+                            <div class="match-icon">📱</div>
+                            <div class="match-text">
+                                <h4>TikTok Actif</h4>
+                                <p>1,575 followers sur @ayke.ia — je comprends la plateforme de l'intérieur</p>
+                            </div>
+                        </div>
+                        <div class="match-item">
+                            <div class="match-icon">⚙️</div>
+                            <div class="match-text">
+                                <h4>Marketing Automation</h4>
+                                <p>Make, Airtable, Zapier — systèmes scalables et efficaces</p>
+                            </div>
+                        </div>
+                        <div class="match-item">
+                            <div class="match-icon">🌍</div>
+                            <div class="match-text">
+                                <h4>Multilingue</h4>
+                                <p>FR natif, EN C1, DE B1, ES B2 — idéal pour l'expansion DACH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-showcase reveal">
+                <div class="skill-item">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Meta Ads</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🔍</div>
+                    <div class="skill-name">Google Ads</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📌</div>
+                    <div class="skill-name">Pinterest Ads</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🛒</div>
+                    <div class="skill-name">Shopify</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📈</div>
+                    <div class="skill-name">Analytics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-content reveal">
+            <h2>Prête à transformer Théobroma en success story TikTok Shop</h2>
+            <p>
+                J'ai l'expérience, les compétences et surtout l'envie de contribuer 
+                à l'aventure Théobroma. Discutons de comment je peux vous aider à conquérir 
+                de nouveaux marchés.
+            </p>
+            <a href="mailto:sonia.catic@hotmail.com" class="cta-button">
+                <span>Planifier un échange</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">SONIA CATIC</div>
+        <p class="footer-text">
+            Dossier préparé avec passion pour Théobroma Beauty • Février 2026<br>
+            <span style="color: var(--gold-accent);">sonia.catic@hotmail.com</span> • +41 78 777 79 78
+        </p>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 2500);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (top < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number, .projection-target');
+            counters.forEach(counter => {
+                const text = counter.textContent;
+                if (counter.dataset.animated) return;
+                
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    counter.dataset.animated = 'true';
+                    // Simple reveal animation
+                    counter.style.opacity = '0';
+                    counter.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        counter.style.transition = 'all 0.6s ease';
+                        counter.style.opacity = '1';
+                        counter.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        };
+        window.addEventListener('scroll', animateCounters);
+        animateCounters();
+    </script>
+</body>
+</html>
