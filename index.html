@@ -1,1085 +1,1405 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Théobroma Beauty | Dossier E-Commerce & Growth — Sonia Catic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Théobroma × Sonia Catic | Le Rituel de Croissance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --noir-profond: #1A1A1A;
+            --gris-intense: #2D2D2D;
+            --gris-moyen: #4A4A4A;
+            --gris-doux: #6B6B6B;
+            --or-premium: #C9A87C;
+            --or-clair: #D4BC94;
+            --or-pale: #E8DCC8;
+            --creme-nude: #F5EDE4;
+            --creme-douce: #FAF7F2;
+            --blanc-pur: #FFFFFF;
+            --vert-clean: #4A7C59;
+            --corail-alert: #E07A5F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--creme-nude); color: var(--gris-intense); line-height: 1.75; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--creme-nude); }
+        ::-webkit-scrollbar-thumb { background: var(--or-premium); border-radius: 3px; }
 
-  <style>
-    :root{
-      --cacao-dark:#2D1B14;
-      --cacao-rich:#4A2C2A;
-      --nude-cream:#F5EDE4;
-      --nude-soft:#EDE5DB;
-      --lavender-mist:#E8E4F0;
-      --gold-accent:#C9A87C;
-      --text-dark:#1A1A1A;
-      --text-muted:#6B6B6B;
-      --white:#FFFFFF;
-      --success-green:#4A7C59;
-      --alert-coral:#E07A5F;
-    }
+        .preloader { position: fixed; inset: 0; background: var(--noir-profond); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.6s ease, visibility 0.6s ease; }
+        .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .preloader-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.3em; color: var(--or-premium); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards; }
+        .preloader-line { width: 80px; height: 1px; background: rgba(201,168,124,0.3); position: relative; overflow: hidden; }
+        .preloader-line::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 0; background: var(--or-premium); animation: loadLine 0.8s ease-out forwards; }
+        @keyframes loadLine { to { width: 100%; } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'DM Sans',sans-serif;
-      background:var(--nude-cream);
-      color:var(--text-dark);
-      overflow-x:hidden;
-      line-height:1.6;
-    }
-    a{color:inherit}
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: all 0.4s ease; }
+        nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.15em; color: var(--creme-nude); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--creme-nude); text-decoration: none; opacity: 0.7; transition: all 0.3s ease; }
+        .nav-links a:hover { opacity: 1; color: var(--or-premium); }
 
-    /* Preloader */
-    .preloader{
-      position:fixed;inset:0;
-      background:var(--cacao-dark);
-      display:flex;align-items:center;justify-content:center;
-      z-index:9999;
-      transition:opacity .6s ease, visibility .6s ease;
-    }
-    .preloader.hidden{opacity:0;visibility:hidden}
-    .preloader-content{text-align:center;color:var(--nude-cream)}
-    .preloader-logo{
-      font-family:'Cormorant Garamond',serif;
-      font-size:2.2rem;font-weight:300;
-      letter-spacing:.25em;margin-bottom:1.4rem;
-      opacity:0;animation:fadeInUp .8s ease forwards;
-    }
-    .preloader-bar{width:220px;height:2px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;margin:0 auto}
-    .preloader-progress{height:100%;background:var(--gold-accent);width:0;animation:loadProgress .8s ease-in-out forwards}
-    @keyframes loadProgress{0%{width:0}100%{width:100%}}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+        .burger { display: none; width: 28px; height: 20px; position: relative; cursor: pointer; z-index: 1001; background: none; border: none; padding: 0; }
+        .burger span { position: absolute; left: 0; width: 100%; height: 1px; background: var(--creme-nude); transition: all 0.4s ease; }
+        .burger span:nth-child(1) { top: 0; }
+        .burger span:nth-child(2) { top: 50%; width: 60%; }
+        .burger span:nth-child(3) { bottom: 0; }
+        .burger[aria-expanded="true"] span:nth-child(1) { top: 50%; transform: rotate(45deg); background: var(--or-premium); }
+        .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .burger[aria-expanded="true"] span:nth-child(3) { bottom: 50%; transform: rotate(-45deg); background: var(--or-premium); }
 
-    /* Nav */
-    nav{
-      position:fixed;top:0;left:0;width:100%;
-      padding:1.2rem 2rem;
-      display:flex;justify-content:space-between;align-items:center;
-      z-index:1000;
-      background:transparent;
-      transition:all .35s ease;
-    }
-    nav.scrolled{
-      background:rgba(45,27,20,.95);
-      backdrop-filter:blur(18px);
-      padding:.9rem 2rem;
-    }
-    .nav-logo{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.1rem;font-weight:400;
-      letter-spacing:.22em;
-      color:var(--white);
-      text-decoration:none;
-      text-transform:uppercase;
-    }
-    .nav-links{display:flex;gap:1.8rem;list-style:none}
-    .nav-links a{
-      color:var(--white);text-decoration:none;font-size:.82rem;
-      letter-spacing:.12em;text-transform:uppercase;
-      opacity:.9;transition:opacity .2s ease;
-      position:relative;
-    }
-    .nav-links a:hover{opacity:1}
-    .nav-links a::after{
-      content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;
-      background:var(--gold-accent);transition:width .25s ease;
-    }
-    .nav-links a:hover::after{width:100%}
+        .mobile-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .mobile-overlay.active { opacity: 1; visibility: visible; }
 
-    /* Hero */
-    .hero{
-      min-height:100vh;
-      background:linear-gradient(135deg,var(--cacao-dark) 0%, var(--cacao-rich) 60%, #3D2420 100%);
-      display:flex;align-items:center;justify-content:center;
-      position:relative;overflow:hidden;
-      padding:8rem 1.5rem 4rem;
-    }
-    .hero::before{
-      content:'';
-      position:absolute;inset:0;
-      background:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      opacity:.03;pointer-events:none;
-    }
-    .stars{position:absolute;inset:0;pointer-events:none}
-    .star{
-      position:absolute;width:3px;height:3px;border-radius:50%;
-      background:var(--gold-accent);opacity:0;
-      animation:twinkle 4s infinite ease-in-out;
-    }
-    .star::before{
-      content:'';
-      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      width:8px;height:8px;border-radius:50%;
-      background:radial-gradient(circle, rgba(201,168,124,.35) 0%, transparent 70%);
-    }
-    @keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+        .scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--or-premium); color: var(--noir-profond); border: none; border-radius: 50%; cursor: pointer; z-index: 900; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top:hover { background: var(--creme-nude); transform: translateY(-3px); }
+        .scroll-top svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    .hero-content{
-      text-align:center;color:var(--white);z-index:2;
-      max-width:980px;
-    }
-    .hero-badge{
-      display:inline-block;padding:.55rem 1.2rem;
-      border:1px solid rgba(201,168,124,.38);
-      border-radius:999px;
-      font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
-      color:var(--gold-accent);
-      margin-bottom:1.6rem;
-      opacity:0;animation:fadeInUp .9s ease .15s forwards;
-    }
-    .hero-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.3rem,5.2vw,4.4rem);
-      font-weight:300;
-      line-height:1.12;
-      margin-bottom:1.2rem;
-      opacity:0;animation:fadeInUp .9s ease .25s forwards;
-    }
-    .hero-title span{color:var(--gold-accent);font-style:italic}
-    .hero-subtitle{
-      font-size:1.05rem;font-weight:300;
-      color:rgba(255,255,255,.72);
-      max-width:720px;margin:0 auto 1.8rem;
-      opacity:0;animation:fadeInUp .9s ease .35s forwards;
-    }
-    .hero-prologue{
-      max-width:820px;margin:0 auto 2.2rem;
-      color:rgba(255,255,255,.80);
-      font-size:1rem;
-      opacity:0;animation:fadeInUp .9s ease .45s forwards;
-    }
-    .hero-author{display:flex;gap:1rem;justify-content:center;align-items:center;opacity:0;animation:fadeInUp .9s ease .55s forwards;}
-    .author-avatar{
-      width:52px;height:52px;border-radius:50%;
-      background:linear-gradient(135deg,var(--gold-accent),var(--nude-cream));
-      display:flex;align-items:center;justify-content:center;
-      font-family:'Cormorant Garamond',serif;font-size:1.2rem;
-      color:var(--cacao-dark);font-weight:700;
-    }
-    .author-info{text-align:left}
-    .author-name{font-weight:600;font-size:.98rem}
-    .author-role{font-size:.82rem;color:rgba(255,255,255,.62)}
+        .mobile-menu { position: fixed; inset: 0; background: var(--noir-profond); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu ul { list-style: none; text-align: center; }
+        .mobile-menu li { margin: 0.8rem 0; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; }
+        .mobile-menu.active li { opacity: 1; transform: translateY(0); }
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.12s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.14s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.16s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.18s; }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.22s; }
+        .mobile-menu.active li:nth-child(8) { transition-delay: 0.24s; }
+        .mobile-menu.active li:nth-child(9) { transition-delay: 0.26s; }
+        .mobile-menu.active li:nth-child(10) { transition-delay: 0.28s; }
+        .mobile-menu.active li:nth-child(11) { transition-delay: 0.3s; }
+        .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--creme-nude); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--or-premium); }
+        .mobile-menu .chapter-num { font-size: 0.6rem; color: var(--or-premium); display: block; margin-bottom: 0.15rem; letter-spacing: 0.1em; }
 
-    .scroll-indicator{
-      position:absolute;left:50%;bottom:2.2rem;transform:translateX(-50%);
-      display:flex;flex-direction:column;align-items:center;gap:.5rem;
-      color:rgba(255,255,255,.5);
-      font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
-      animation:bounce 2s infinite;
-    }
-    .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold-accent),transparent)}
-    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+        .hero { min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(45,27,20,0.92), rgba(74,44,42,0.78)), url("https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=1400") center/cover no-repeat; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 25% 35%, rgba(201,168,124,0.15) 0%, transparent 50%), radial-gradient(ellipse 50% 30% at 75% 65%, rgba(74,124,89,0.08) 0%, transparent 40%); }
+        .hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: 0.04; pointer-events: none; }
+        
+        .cacao-divider { width: 100%; margin: 0; padding: 0; line-height: 0; }
+        .cacao-divider svg { width: 100%; height: 90px; display: block; }
+        
+        .cacao-photo { max-width: 1100px; margin: 0 auto; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 50px rgba(45,27,20,0.12); }
+        .cacao-photo img { width: 100%; height: auto; display: block; max-height: 280px; object-fit: cover; }
+        
+        .cacao-icon { width: 28px; height: 28px; vertical-align: middle; color: var(--or-premium); }
+        
+        .cacao-interchapter { background: var(--creme-douce); padding: 3rem 5%; }
+        .cacao-interchapter .cacao-photo { margin-top: 1.5rem; }
+        .hero-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 25% 35%, rgba(201,168,124,0.1) 0%, transparent 50%), radial-gradient(ellipse 50% 30% at 75% 65%, rgba(74,124,89,0.06) 0%, transparent 40%); }
+        .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 800px; }
+        .hero-chapter { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--or-premium); margin-bottom: 0.8rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+        .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 9vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--creme-nude); margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+        .hero-title em { font-style: italic; color: var(--or-premium); }
+        .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 3vw, 1.25rem); font-weight: 300; font-style: italic; color: rgba(245, 237, 228, 0.8); max-width: 550px; margin: 0 auto 2rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+        .hero-meta { display: flex; align-items: center; justify-content: center; gap: 2rem; font-size: 0.75rem; color: rgba(245,237,228,0.5); opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards; flex-wrap: wrap; }
+        .hero-author-tag { padding: 0.4rem 1rem; border: 1px solid rgba(201,168,124,0.3); border-radius: 20px; color: var(--or-premium); font-size: 0.7rem; letter-spacing: 0.05em; }
+        .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease 1s forwards; }
+        .scroll-hint span { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245, 237, 228, 0.4); }
+        .scroll-line { width: 1px; height: 35px; background: linear-gradient(to bottom, var(--or-premium), transparent); }
 
-    /* Sections */
-    section{padding:6rem 2rem;position:relative}
-    .section-header{text-align:center;margin-bottom:3.8rem}
-    .chapter-num{
-      font-family:'Cormorant Garamond',serif;
-      font-size:.95rem;color:var(--gold-accent);
-      letter-spacing:.32em;margin-bottom:.6rem;
-      text-transform:uppercase;
-    }
-    .section-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2rem,3.4vw,3rem);
-      font-weight:400;color:var(--cacao-dark);
-      margin-bottom:.9rem;
-    }
-    .section-line{width:60px;height:1px;background:var(--gold-accent);margin:1.2rem auto}
-    .section-kicker{
-      max-width:820px;margin:0 auto;
-      color:var(--text-muted);
-      font-size:1rem;
-    }
+        section { position: relative; padding: 5rem 5%; }
+        .chapter-header { text-align: center; margin-bottom: 3rem; }
+        .chapter-num { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--or-premium); margin-bottom: 0.5rem; }
+        .chapter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 400; color: var(--gris-intense); }
+        .chapter-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--gris-doux); margin-top: 0.5rem; }
+        .chapter-line { width: 40px; height: 1px; background: var(--or-premium); margin: 1.2rem auto 0; }
+        .page-turn { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--or-pale); }
+        .page-turn a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris-doux); text-decoration: none; transition: all 0.3s ease; padding: 0.8rem 1.5rem; border-radius: 30px; border: 1px solid transparent; }
+        .page-turn a:hover, .page-turn a:focus { color: var(--or-premium); border-color: var(--or-pale); background: rgba(201,168,124,0.05); outline: none; }
+        .page-turn a:focus-visible { box-shadow: 0 0 0 2px var(--or-premium); }
 
-    /* Cards & grids */
-    .container{max-width:1200px;margin:0 auto}
-    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem}
-    .card{
-      background:var(--white);
-      border-radius:18px;
-      box-shadow:0 18px 50px rgba(45,27,20,.07);
-      padding:2.3rem;
-      border:1px solid rgba(0,0,0,.03);
-    }
+        /* LEXIQUE */
+        .lexique { background: var(--gris-intense); padding: 1.5rem 5%; }
+        .lexique-content { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+        .lexique-item { display: flex; align-items: baseline; gap: 0.5rem; }
+        .lexique-item .term { font-size: 0.7rem; font-weight: 600; color: var(--or-premium); letter-spacing: 0.05em; }
+        .lexique-item .def { font-size: 0.7rem; color: rgba(245,237,228,0.7); }
 
-    /* Executive */
-    .executive{background:var(--white)}
-    .exec-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.7rem;font-weight:400;color:var(--cacao-dark);
-      margin-bottom:1.1rem;
-    }
-    .exec-text p{color:var(--text-muted);margin-bottom:1.1rem;font-size:1.02rem}
-    .highlight{
-      background:linear-gradient(135deg,var(--lavender-mist),var(--nude-soft));
-      border-radius:16px;padding:1.6rem;margin-top:1.4rem;
-    }
-    .highlight h4{
-      font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--cacao-dark);
-      margin-bottom:.8rem;
-    }
-    .list{list-style:none}
-    .list li{padding:.75rem 0 .75rem 1.6rem;position:relative;color:var(--text-muted);border-bottom:1px solid rgba(0,0,0,.05)}
-    .list li:last-child{border-bottom:none}
-    .list li::before{content:'→';position:absolute;left:0;color:var(--gold-accent);font-weight:700}
+        /* ONE PAGER */
+        .one-pager { background: var(--gris-intense); color: var(--creme-nude); }
+        .one-pager .chapter-num, .one-pager .chapter-title { color: var(--creme-nude); }
+        .one-pager-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .one-pager-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,124,0.15); border-radius: 16px; padding: 2rem; text-align: center; }
+        .one-pager-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--or-premium); margin-bottom: 1rem; }
+        .one-pager-card ul { list-style: none; }
+        .one-pager-card li { font-size: 0.85rem; color: rgba(245,237,228,0.8); padding: 0.5rem 0; border-bottom: 1px solid rgba(201,168,124,0.1); }
+        .one-pager-card li:last-child { border-bottom: none; }
+        .ceo-rule { max-width: 650px; margin: 2rem auto 0; padding: 1.2rem 1.5rem; background: rgba(74,124,89,0.15); border-radius: 10px; text-align: center; font-size: 0.9rem; color: var(--creme-nude); }
+        .ceo-rule strong { color: var(--vert-clean); }
+        .scorecard { max-width: 700px; margin: 2rem auto 0; background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem 2rem; border: 1px solid rgba(201,168,124,0.2); }
+        .scorecard h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--or-premium); margin-bottom: 1rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .scorecard h4 .cacao-icon { width: 24px; height: 24px; }
+        .scorecard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+        .scorecard-item { font-size: 0.8rem; color: rgba(245,237,228,0.8); padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; align-items: center; gap: 0.5rem; }
+        .scorecard-item::before { content: '○'; color: var(--or-premium); font-size: 0.6rem; }
+        .theo-box { border-color: var(--or-premium); background: linear-gradient(135deg, var(--blanc-pur), rgba(201,168,124,0.1)); }
+        .theo-box-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .theo-box-header .svg-icon-large { margin: 0; flex-shrink: 0; }
+        .theo-box-header h4 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); }
+        .theo-box-image { margin-top: 1.5rem; border-radius: 12px; overflow: hidden; }
+        .theo-box-image img { width: 100%; height: 140px; object-fit: cover; display: block; }
+        
+        .product-visual { border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+        .product-visual img { width: 100%; height: auto; display: block; }
+        .product-visual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+        .product-visual-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; transition: transform 0.3s ease; }
+        .product-visual-grid img:hover { transform: scale(1.03); }
+        
+        .svg-icon-large { width: 48px; height: 48px; color: var(--or-premium); margin-bottom: 1rem; }
+        .svg-icon-large svg { width: 100%; height: 100%; }
+        
+        .theo-highlight { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; background: var(--blanc-pur); border-radius: 12px; border-left: 3px solid var(--or-premium); margin: 1.5rem 0; }
+        .theo-highlight .icon { color: var(--or-premium); flex-shrink: 0; }
+        .theo-highlight .content h5 { font-size: 0.9rem; color: var(--gris-intense); margin-bottom: 0.3rem; }
+        .theo-highlight .content p { font-size: 0.8rem; color: var(--gris-doux); margin: 0; }
+        .leviers-phrase { font-size: 0.9rem; color: var(--gris-doux); line-height: 1.7; }
+        .ops-note { font-size: 0.7rem; color: var(--gris-doux); font-style: italic; margin-top: 0.8rem; padding-top: 0.5rem; border-top: 1px solid var(--or-pale); }
 
-    .stats-card{
-      background:var(--cacao-dark);
-      color:var(--white);
-      border-radius:18px;
-      padding:2.3rem;
-      overflow:hidden;
-      position:relative;
-    }
-    .stats-card::before{
-      content:'';
-      position:absolute;top:-50%;right:-50%;
-      width:100%;height:100%;
-      background:radial-gradient(circle, rgba(201,168,124,.12) 0%, transparent 70%);
-    }
-    .stats-card h3{
-      position:relative;z-index:2;
-      font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;
-      margin-bottom:1.4rem;
-    }
-    .stats-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .stat{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:14px;
-      padding:1.2rem;text-align:center;
-    }
-    .stat .num{
-      font-family:'Cormorant Garamond',serif;
-      font-size:2.1rem;font-weight:300;color:var(--gold-accent);
-      display:block;margin-bottom:.25rem;
-    }
-    .stat .label{
-      font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;
-      color:rgba(255,255,255,.7);
-    }
-    .note{
-      font-size:.85rem;color:rgba(255,255,255,.65);margin-top:1rem;position:relative;z-index:2
-    }
+        /* PROMESSE */
+        .promesse { background: var(--creme-douce); }
+        .promesse-content { max-width: 800px; margin: 0 auto; }
+        .promesse-intro { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 400; line-height: 1.8; color: var(--gris-intense); text-align: center; margin-bottom: 3rem; }
+        .promesse-intro strong { color: var(--gris-moyen); }
+        .promesse-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
+        .promesse-text p { font-size: 0.95rem; color: var(--gris-doux); margin-bottom: 1.5rem; line-height: 1.8; }
+        .promesse-text strong { color: var(--gris-intense); }
+        .promesse-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--gris-moyen); padding: 1.5rem; border-left: 2px solid var(--or-premium); background: var(--blanc-pur); margin: 2rem 0; }
+        .opportunity-box { background: var(--blanc-pur); border-radius: 16px; padding: 2rem; border-left: 3px solid var(--or-premium); }
+        .opportunity-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); margin-bottom: 1rem; }
+        .opportunity-list { list-style: none; }
+        .opportunity-list li { padding: 0.7rem 0; padding-left: 1.2rem; position: relative; font-size: 0.9rem; color: var(--gris-doux); border-bottom: 1px solid var(--or-pale); }
+        .opportunity-list li:last-child { border-bottom: none; }
+        .opportunity-list li::before { content: '—'; position: absolute; left: 0; color: var(--or-premium); }
+        .opportunity-list li strong { color: var(--gris-intense); }
 
-    /* Market */
-    .market{background:var(--nude-soft)}
-    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-    .market-card{
-      background:var(--white);
-      border-radius:18px;padding:2rem;
-      transition:transform .35s ease, background .35s ease, border-color .35s ease;
-      border:1px solid rgba(0,0,0,.04);
-      position:relative;overflow:hidden;
-    }
-    .market-card:hover{transform:translateY(-8px);background:var(--cacao-dark);border-color:rgba(201,168,124,.6)}
-    .market-icon{
-      width:54px;height:54px;border-radius:16px;
-      background:linear-gradient(135deg,var(--lavender-mist),var(--nude-cream));
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.4rem;margin-bottom:1rem;
-      transition:transform .35s ease, background .35s ease;
-    }
-    .market-card:hover .market-icon{
-      transform:scale(1.06);
-      background:linear-gradient(135deg,var(--gold-accent),var(--cacao-rich));
-    }
-    .market-card h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.35rem;font-weight:400;margin-bottom:.65rem;
-      color:var(--cacao-dark);
-      transition:color .35s ease;
-    }
-    .market-card:hover h3{color:var(--white)}
-    .market-card p{color:var(--text-muted);font-size:.95rem;transition:color .35s ease}
-    .market-card:hover p{color:rgba(255,255,255,.78)}
-    .market-stat{display:flex;gap:.45rem;align-items:baseline;margin-top:1rem}
-    .market-stat .value{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.95rem;color:var(--cacao-dark);font-weight:500;
-      transition:color .35s ease;
-    }
-    .market-card:hover .market-stat .value{color:var(--gold-accent)}
-    .market-stat .unit{font-size:.85rem;color:var(--text-muted);transition:color .35s ease}
-    .market-card:hover .market-stat .unit{color:rgba(255,255,255,.65)}
+        .tendances-card { background: linear-gradient(145deg, var(--gris-intense), var(--gris-moyen)); border-radius: 20px; padding: 2rem; color: var(--creme-nude); }
+        .tendances-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .tendances-list { list-style: none; }
+        .tendances-list li { font-size: 0.85rem; color: rgba(245,237,228,0.8); padding: 0.6rem 0; padding-left: 1.2rem; position: relative; border-bottom: 1px solid rgba(201,168,124,0.1); }
+        .tendances-list li:last-child { border-bottom: none; }
+        .tendances-list li::before { content: '↗'; position: absolute; left: 0; color: var(--vert-clean); }
 
-    /* TikTok */
-    .tiktok{
-      background:linear-gradient(180deg,var(--cacao-dark) 0%, #1a1a2e 100%);
-      color:var(--white);
-      overflow:hidden;
-    }
-    .tiktok .section-title{color:var(--white)}
-    .tiktok .section-kicker{color:rgba(255,255,255,.75)}
-    .tiktok .stars{opacity:.9}
+        /* CAS D'USAGE */
+        .cas-usage { background: var(--creme-nude); }
+        .cas-card { background: var(--blanc-pur); border-radius: 20px; padding: 2.5rem; max-width: 800px; margin: 0 auto; border: 1px solid var(--or-pale); }
+        .cas-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .cas-badge { padding: 0.4rem 1rem; background: var(--gris-intense); color: var(--or-premium); border-radius: 20px; font-size: 0.7rem; letter-spacing: 0.05em; }
+        .cas-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gris-intense); }
+        .cas-disclaimer { font-size: 0.75rem; color: var(--gris-doux); font-style: italic; margin-bottom: 1.5rem; padding: 0.8rem 1rem; background: var(--creme-douce); border-radius: 8px; border-left: 3px solid var(--or-premium); }
+        .cas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .cas-step { text-align: center; }
+        .cas-step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--or-pale); color: var(--gris-intense); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; margin: 0 auto 0.8rem; }
+        .cas-step h5 { font-size: 0.8rem; color: var(--gris-intense); margin-bottom: 0.4rem; }
+        .cas-step p { font-size: 0.75rem; color: var(--gris-doux); line-height: 1.5; }
+        .cas-result { background: linear-gradient(135deg, var(--gris-intense), var(--gris-moyen)); border-radius: 12px; padding: 1.5rem; color: var(--creme-nude); text-align: center; }
+        .cas-result-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .cas-result-item .value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--or-premium); }
+        .cas-result-item .label { font-size: 0.75rem; color: rgba(245,237,228,0.7); }
+        .cas-theo { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--or-pale); font-size: 0.85rem; color: var(--gris-doux); font-style: italic; }
 
-    .alert{
-      background:linear-gradient(135deg, rgba(255,0,80,.18), rgba(0,242,234,.18));
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:16px;
-      padding:1.7rem 2rem;
-      display:flex;gap:1.4rem;align-items:flex-start;
-      margin:2rem 0 2.6rem;
-    }
-    .alert .icon{font-size:2.4rem;line-height:1}
-    .alert h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.45rem;font-weight:400;margin-bottom:.4rem;
-    }
-    .alert p{color:rgba(255,255,255,.78);font-size:.98rem}
+        /* PAID MEDIA */
+        .paid-media { background: var(--creme-douce); }
+        .paid-content { max-width: 900px; margin: 0 auto; }
+        .paid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .paid-card { background: var(--blanc-pur); border-radius: 16px; padding: 1.8rem; border: 1px solid var(--or-pale); }
+        .paid-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); margin-bottom: 0.3rem; }
+        .paid-card .platform { font-size: 0.7rem; color: var(--or-premium); letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .paid-card ul { list-style: none; }
+        .paid-card li { font-size: 0.8rem; color: var(--gris-doux); padding: 0.4rem 0; padding-left: 1rem; position: relative; border-bottom: 1px solid var(--or-pale); }
+        .paid-card li:last-child { border-bottom: none; }
+        .paid-card li::before { content: '→'; position: absolute; left: 0; color: var(--or-premium); font-size: 0.7rem; }
+        .paid-kpi { background: var(--gris-intense); border-radius: 12px; padding: 1.5rem; color: var(--creme-nude); }
+        .paid-kpi h5 { font-size: 0.8rem; color: var(--or-premium); margin-bottom: 1rem; text-align: center; }
+        .paid-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .paid-kpi-item { text-align: center; }
+        .paid-kpi-item .value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--or-premium); }
+        .paid-kpi-item .label { font-size: 0.65rem; color: rgba(245,237,228,0.6); }
+        .paid-kpi-item .paid-note { font-size: 0.6rem; color: rgba(245,237,228,0.4); display: block; margin-top: 0.2rem; font-style: italic; }
+        .paid-kpi-note { font-size: 0.75rem; color: rgba(245,237,228,0.6); text-align: center; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(201,168,124,0.15); }
 
-    .tiktok-grid{
-      display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;
-      margin-top:1.6rem;
-    }
-    .tiktok-pill{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:16px;
-      padding:1.4rem;
-      text-align:center;
-    }
-    .tiktok-pill .big{font-size:2.2rem;margin-bottom:.6rem}
-    .tiktok-pill .label{color:var(--gold-accent);font-size:.85rem;margin-bottom:.35rem}
-    .tiktok-pill .desc{color:rgba(255,255,255,.68);font-size:.86rem}
+        .budget-box { background: var(--blanc-pur); border-radius: 16px; padding: 2rem; margin-top: 2rem; border: 1px solid var(--or-pale); }
+        .budget-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); margin-bottom: 1.5rem; text-align: center; }
+        .budget-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .budget-phase { text-align: center; padding: 1.2rem; background: var(--creme-douce); border-radius: 10px; }
+        .budget-phase .period { font-size: 0.7rem; color: var(--or-premium); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .budget-phase .amount { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gris-intense); }
+        .budget-phase .detail { font-size: 0.7rem; color: var(--gris-doux); margin-top: 0.3rem; }
+        .budget-rule { margin-top: 1.5rem; padding: 1rem; background: rgba(74,124,89,0.1); border-radius: 8px; border-left: 3px solid var(--vert-clean); }
+        .budget-rule p { font-size: 0.85rem; color: var(--gris-doux); }
+        .budget-rule strong { color: var(--vert-clean); }
 
-    .ops-box{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:1.8rem;
-      margin-top:1.6rem;
-    }
-    .ops-box h4{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.35rem;font-weight:400;margin-bottom:.8rem;
-    }
-    .ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .ops-item{
-      background:rgba(0,0,0,.16);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:1rem;
-    }
-    .ops-item strong{display:block;color:var(--gold-accent);margin-bottom:.35rem;font-weight:600}
-    .ops-item span{color:rgba(255,255,255,.72);font-size:.88rem}
+        /* CRO SPRINT */
+        .cro-sprint { background: var(--creme-nude); }
+        .cro-content { max-width: 900px; margin: 0 auto; }
+        .cro-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--gris-doux); text-align: center; max-width: 600px; margin: 0 auto 2.5rem; }
+        .cro-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .cro-item { background: var(--blanc-pur); border-radius: 12px; padding: 1.2rem; text-align: center; border: 1px solid var(--or-pale); transition: all 0.3s ease; }
+        .cro-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(45,45,45,0.08); }
+        .cro-item .icon-box { width: 36px; height: 36px; background: var(--or-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.8rem; }
+        .cro-item .icon-box svg { width: 18px; height: 18px; stroke: var(--gris-intense); fill: none; stroke-width: 1.5; }
+        .cro-item h5 { font-size: 0.8rem; color: var(--gris-intense); margin-bottom: 0.3rem; }
+        .cro-item p { font-size: 0.7rem; color: var(--gris-doux); line-height: 1.4; }
 
-    /* Strategy */
-    .strategy{background:var(--nude-soft)}
-    .phases{display:flex;flex-direction:column;gap:1.5rem}
-    .phase{
-      display:grid;grid-template-columns:120px 1fr;gap:1.8rem;
-      padding:2rem;border-radius:18px;background:var(--white);
-      border:1px solid rgba(0,0,0,.04);
-    }
-    .phase .badge{
-      width:84px;height:84px;border-radius:50%;
-      background:var(--cacao-dark);
-      display:flex;align-items:center;justify-content:center;
-      margin:0 auto .6rem;
-    }
-    .phase .badge span{
-      font-family:'Cormorant Garamond',serif;
-      font-size:2rem;color:var(--gold-accent);
-    }
-    .phase .days{
-      text-align:center;font-size:.78rem;text-transform:uppercase;
-      letter-spacing:.12em;color:var(--text-muted);
-    }
-    .phase h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.6rem;font-weight:400;color:var(--cacao-dark);
-      margin-bottom:.5rem;
-    }
-    .phase p{color:var(--text-muted);margin-bottom:1rem}
-    .actions{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .action{
-      background:var(--nude-cream);
-      border:1px solid rgba(0,0,0,.03);
-      border-left:3px solid var(--gold-accent);
-      border-radius:14px;padding:1rem;
-      transition:transform .25s ease, background .25s ease;
-    }
-    .action:hover{transform:translateX(6px);background:var(--cacao-dark)}
-    .action h4{font-size:.98rem;color:var(--cacao-dark);margin-bottom:.25rem}
-    .action p{font-size:.86rem;color:var(--text-muted);margin:0}
-    .action:hover h4{color:var(--white)}
-    .action:hover p{color:rgba(255,255,255,.75)}
+        /* TIKTOK SHOP OPS */
+        .tiktok-ops { background: var(--creme-douce); }
+        .ops-content { max-width: 900px; margin: 0 auto; }
+        .ops-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .ops-card { background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--or-pale); }
+        .ops-card h5 { font-size: 0.85rem; color: var(--gris-intense); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .ops-card h5::before { content: ''; width: 8px; height: 8px; background: var(--or-premium); border-radius: 50%; }
+        .ops-card ul { list-style: none; }
+        .ops-card li { font-size: 0.8rem; color: var(--gris-doux); padding: 0.3rem 0; padding-left: 1rem; position: relative; }
+        .ops-card li::before { content: '✓'; position: absolute; left: 0; color: var(--vert-clean); font-size: 0.7rem; }
 
-    /* Cockpit / Projections */
-    .projections{
-      background:linear-gradient(135deg,var(--cacao-dark) 0%, var(--cacao-rich) 100%);
-      color:var(--white);
-      overflow:hidden;
-    }
-    .projections .section-title{color:var(--white)}
-    .projections .section-kicker{color:rgba(255,255,255,.75)}
-    .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem}
-    .kpi{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;padding:1.6rem;text-align:center;
-    }
-    .kpi .name{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold-accent);margin-bottom:.6rem}
-    .kpi .cur{color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:.2rem}
-    .kpi .target{
-      font-family:'Cormorant Garamond',serif;font-size:2.6rem;line-height:1;
-      margin-bottom:.35rem;
-    }
-    .kpi .tag{
-      display:inline-block;padding:.28rem .7rem;border-radius:999px;
-      background:rgba(74,124,89,.28);color:#9FE0B0;font-size:.82rem;font-weight:600
-    }
-    .disclaimer{
-      margin-top:1.6rem;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:14px;
-      padding:1.4rem;
-      color:rgba(255,255,255,.72);
-      font-size:.9rem;
-      text-align:center;
-    }
-    .disclaimer strong{color:var(--gold-accent)}
+        /* AMAZON EUROPE */
+        .amazon-europe { background: var(--creme-nude); }
+        .amazon-content { max-width: 900px; margin: 0 auto; }
+        .amazon-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--gris-doux); text-align: center; max-width: 600px; margin: 0 auto 2.5rem; }
+        .amazon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .amazon-card { background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--or-pale); }
+        .amazon-card h5 { font-size: 0.85rem; color: var(--gris-intense); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .amazon-card h5::before { content: ''; width: 8px; height: 8px; background: var(--or-premium); border-radius: 50%; }
+        .amazon-card ul { list-style: none; }
+        .amazon-card li { font-size: 0.8rem; color: var(--gris-doux); padding: 0.3rem 0; padding-left: 1rem; position: relative; }
+        .amazon-card li::before { content: '✓'; position: absolute; left: 0; color: var(--vert-clean); font-size: 0.7rem; }
 
-    .cockpit{
-      margin-top:1.5rem;
-      background:rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:1.8rem;
-    }
-    .cockpit h4{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.45rem;font-weight:400;margin-bottom:.8rem;
-    }
-    .cockpit p{color:rgba(255,255,255,.74);margin-bottom:1rem}
-    .cockpit-list{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-    .cockpit-li{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:.85rem .95rem;
-      color:rgba(255,255,255,.76);
-      font-size:.9rem;
-    }
+        /* OMNICANAL */
+        .omnicanal { background: var(--creme-douce); }
+        .omnicanal-content { max-width: 900px; margin: 0 auto; }
+        .omnicanal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .omnicanal-col { background: var(--blanc-pur); border-radius: 16px; padding: 2rem; }
+        .omnicanal-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); margin-bottom: 0.3rem; }
+        .omnicanal-col .direction { font-size: 0.7rem; color: var(--or-premium); margin-bottom: 1.2rem; }
+        .omnicanal-col ul { list-style: none; }
+        .omnicanal-col li { font-size: 0.85rem; color: var(--gris-doux); padding: 0.6rem 0; padding-left: 1.2rem; position: relative; border-bottom: 1px solid var(--or-pale); }
+        .omnicanal-col li:last-child { border-bottom: none; }
+        .omnicanal-col li::before { content: '↔'; position: absolute; left: 0; color: var(--or-premium); }
+        .omnicanal-col li strong { color: var(--gris-intense); }
 
-    /* Why me */
-    .why{background:var(--white)}
-    .profile{
-      background:var(--nude-cream);
-      border-radius:22px;
-      padding:2.2rem;
-      display:grid;grid-template-columns:280px 1fr;gap:2.2rem;
-      border:1px solid rgba(0,0,0,.03);
-    }
-    .avatar{
-      width:170px;height:170px;border-radius:50%;
-      background:linear-gradient(135deg,var(--gold-accent),var(--cacao-rich));
-      display:flex;align-items:center;justify-content:center;
-      font-family:'Cormorant Garamond',serif;font-size:3.6rem;color:var(--white);
-      margin:0 auto 1rem;position:relative;
-    }
-    .avatar::after{content:'';position:absolute;inset:-6px;border:2px solid var(--gold-accent);border-radius:50%;opacity:.45}
-    .profile h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.65rem;font-weight:400;color:var(--cacao-dark);
-      margin-bottom:.3rem;text-align:center
-    }
-    .profile .title{color:var(--text-muted);font-size:.92rem;text-align:center}
+        /* FORMULE DÉTAILLÉE */
+        .formule { background: var(--creme-nude); }
+        .phases-detailed { max-width: 950px; margin: 0 auto; }
+        .phase-block { margin-bottom: 3rem; }
+        .phase-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .phase-num-large { width: 60px; height: 60px; min-width: 60px; background: linear-gradient(135deg, var(--or-premium), var(--gris-moyen)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--blanc-pur); }
+        .phase-info { flex: 1; min-width: 250px; }
+        .phase-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gris-intense); margin-bottom: 0.3rem; }
+        .phase-info p { font-size: 0.9rem; color: var(--gris-doux); line-height: 1.6; }
+        .phase-period { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gris-doux); text-transform: uppercase; padding-top: 0.5rem; }
+        .phase-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .action-card { background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--or-pale); transition: all 0.3s ease; }
+        .action-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(45,45,45,0.08); }
+        .action-card .action-icon { width: 32px; height: 32px; background: var(--or-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; }
+        .action-card .action-icon svg { width: 16px; height: 16px; stroke: var(--gris-intense); fill: none; stroke-width: 1.5; }
+        .action-card h5 { font-size: 0.9rem; color: var(--gris-intense); margin-bottom: 0.4rem; }
+        .action-card p { font-size: 0.8rem; color: var(--gris-doux); line-height: 1.5; }
 
-    .signature h4{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.35rem;font-weight:400;color:var(--cacao-dark);
-      margin-bottom:.6rem;
-    }
-    .signature p{color:var(--text-muted);margin-bottom:1.1rem}
-    .match-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:.9rem;
-    }
-    .match-item{
-      display:flex;gap:.8rem;align-items:flex-start;
-      background:var(--white);
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.03);
-      padding:1rem;
-    }
-    .match-item .icon{
-      width:38px;height:38px;border-radius:12px;
-      background:var(--lavender-mist);
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.15rem;flex-shrink:0;
-    }
-    .match-item p{margin:0;color:var(--text-muted);font-size:.9rem}
-    .match-item strong{color:var(--cacao-dark)}
+        /* RISK REGISTER */
+        .risk-register { background: var(--gris-intense); color: var(--creme-nude); }
+        .risk-register .chapter-num, .risk-register .chapter-title { color: var(--creme-nude); }
+        .risk-register .chapter-subtitle { color: rgba(245,237,228,0.6); }
+        .risk-content { max-width: 900px; margin: 0 auto; }
+        .risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .risk-item { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(201,168,124,0.1); }
+        .risk-item .risk-label { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+        .risk-item .risk-icon { width: 24px; height: 24px; background: rgba(224,122,95,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .risk-item .risk-icon svg { width: 12px; height: 12px; stroke: var(--corail-alert); fill: none; stroke-width: 2; }
+        .risk-item h5 { font-size: 0.85rem; color: var(--creme-nude); }
+        .risk-item .parade { font-size: 0.8rem; color: rgba(245,237,228,0.7); padding-left: 1rem; position: relative; }
+        .risk-item .parade::before { content: '↳'; position: absolute; left: 0; color: var(--vert-clean); }
 
-    .skills-section{margin-top:1.4rem}
-    .skills-section h4{font-size:1rem;color:var(--cacao-dark);margin-bottom:.8rem}
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
-    .skill-item{
-      background:var(--nude-cream);
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.03);
-      padding:1rem;
-      display:flex;gap:.7rem;align-items:center;
-    }
-    .skill-icon{font-size:1.25rem}
-    .skill-name{font-size:.92rem;color:var(--cacao-dark);font-weight:600}
+        /* TEAM PROCESS */
+        .team-process { background: var(--creme-douce); }
+        .team-content { max-width: 800px; margin: 0 auto; }
+        .team-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--gris-doux); text-align: center; max-width: 550px; margin: 0 auto 2.5rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .team-card { background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--or-pale); }
+        .team-card h5 { font-size: 0.85rem; color: var(--gris-intense); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .team-card h5::before { content: ''; width: 8px; height: 8px; background: var(--or-premium); border-radius: 50%; }
+        .team-card p { font-size: 0.8rem; color: var(--gris-doux); line-height: 1.6; }
+        .raci-box { max-width: 600px; margin: 2rem auto 0; background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border: 2px solid var(--or-premium); }
+        .raci-box h5 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gris-intense); margin-bottom: 1rem; text-align: center; }
+        .raci-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+        .raci-item { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--or-pale); }
+        .raci-item:last-child { border-bottom: none; }
+        .raci-who { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--or-premium); min-width: 70px; }
+        .raci-what { font-size: 0.8rem; color: var(--gris-doux); }
 
-    .needs-box{
-      margin-top:1rem;
-      background:linear-gradient(135deg,var(--lavender-mist),var(--nude-soft));
-      border-radius:16px;
-      padding:1.2rem;
-    }
-    .needs-box h5{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.2rem;font-weight:400;color:var(--cacao-dark);
-      margin-bottom:.4rem;
-    }
-    .needs-box p{color:var(--text-muted);font-size:.95rem}
+        /* COCKPIT */
+        .cockpit { background: var(--gris-intense); color: var(--creme-nude); }
+        .cockpit .chapter-num, .cockpit .chapter-title { color: var(--creme-nude); }
+        .cockpit .chapter-subtitle { color: rgba(245,237,228,0.6); }
+        .cockpit-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(245,237,228,0.8); text-align: center; max-width: 600px; margin: 0 auto 3rem; }
+        .dashboard-preview { background: rgba(0,0,0,0.3); border-radius: 20px; padding: 2rem; max-width: 800px; margin: 0 auto; border: 1px solid rgba(201,168,124,0.15); }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(201,168,124,0.1); flex-wrap: wrap; gap: 1rem; }
+        .dashboard-header h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--or-premium); }
+        .dashboard-header span { font-size: 0.7rem; color: rgba(245,237,228,0.5); }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .dashboard-item { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .dashboard-item .label { font-size: 0.8rem; color: rgba(245,237,228,0.7); }
+        .dashboard-item .value { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--or-premium); }
+        .dashboard-actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .dashboard-col { background: rgba(201,168,124,0.1); border-radius: 10px; padding: 1.2rem; }
+        .dashboard-col h5 { font-size: 0.75rem; color: var(--or-premium); margin-bottom: 0.8rem; }
+        .dashboard-col ul { list-style: none; }
+        .dashboard-col li { font-size: 0.75rem; color: rgba(245,237,228,0.8); padding: 0.3rem 0; padding-left: 1rem; position: relative; }
+        .dashboard-col li::before { content: '→'; position: absolute; left: 0; color: var(--or-premium); font-size: 0.7rem; }
 
-    /* Epilogue / CTA */
-    .epilogue{
-      background:linear-gradient(135deg,var(--lavender-mist) 0%, var(--nude-cream) 100%);
-      text-align:center;
-      padding:5.5rem 2rem;
-    }
-    .epilogue .chapter-num{color:var(--cacao-dark);opacity:.8}
-    .epilogue .chapter-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2rem,3.4vw,3rem);
-      font-weight:400;color:var(--cacao-dark);
-      margin-bottom:1rem;
-    }
-    .epilogue-text{color:var(--text-muted);font-size:1.05rem;max-width:820px;margin:0 auto 1.8rem}
-    .cta-button{
-      display:inline-flex;gap:1rem;align-items:center;
-      padding:1.05rem 2.6rem;
-      background:var(--cacao-dark);color:var(--white);
-      border-radius:999px;text-decoration:none;
-      font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-      font-size:.85rem;
-      transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
-    }
-    .cta-button:hover{
-      background:var(--cacao-rich);
-      transform:translateY(-2px);
-      box-shadow:0 14px 34px rgba(45,27,20,.25);
-    }
-    .cta-contact{margin-top:1rem;color:rgba(45,27,20,.75);font-size:.95rem}
+        /* AUTRICE */
+        .autrice { background: var(--creme-douce); }
+        .autrice-content { max-width: 900px; margin: 0 auto; }
+        .autrice-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--gris-intense); text-align: center; max-width: 650px; margin: 0 auto 3rem; line-height: 1.8; }
+        .autrice-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem; }
+        .autrice-card { background: var(--blanc-pur); border-radius: 20px; padding: 2rem; text-align: center; }
+        .autrice-avatar { width: 70px; height: 70px; background: linear-gradient(135deg, var(--or-premium), var(--gris-moyen)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--creme-nude); margin: 0 auto 1rem; }
+        .autrice-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gris-intense); }
+        .autrice-card .title { font-size: 0.8rem; color: var(--or-premium); margin-bottom: 1.5rem; }
+        .match-list { text-align: left; }
+        .match-item { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--or-pale); font-size: 0.85rem; }
+        .match-item:last-child { border-bottom: none; }
+        .match-item .icon-box { width: 32px; height: 32px; min-width: 32px; background: var(--or-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .match-item .icon-box svg { width: 16px; height: 16px; stroke: var(--gris-intense); fill: none; stroke-width: 2; }
+        .match-item p { color: var(--gris-doux); margin: 0; }
+        .match-item strong { color: var(--gris-intense); }
+        .skills-section h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); margin-bottom: 1.2rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
+        .skill-item { background: var(--blanc-pur); padding: 1rem 0.5rem; border-radius: 10px; text-align: center; transition: all 0.3s ease; border: 1px solid var(--or-pale); }
+        .skill-item:hover { background: var(--gris-intense); border-color: var(--gris-intense); }
+        .skill-item:hover .skill-name { color: var(--creme-nude); }
+        .skill-item:hover .skill-icon-box { background: rgba(255,255,255,0.15); }
+        .skill-item:hover .skill-icon-box svg { stroke: var(--or-premium); }
+        .skill-icon-box { width: 36px; height: 36px; background: var(--or-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; transition: all 0.3s ease; }
+        .skill-icon-box svg { width: 18px; height: 18px; stroke: var(--gris-intense); fill: none; stroke-width: 1.5; transition: stroke 0.3s ease; }
+        .skill-name { font-size: 0.7rem; color: var(--gris-doux); transition: color 0.3s ease; font-weight: 500; }
+        .needs-box { background: var(--blanc-pur); border-radius: 12px; padding: 1.5rem; border-left: 3px solid var(--or-premium); }
+        .needs-box h5 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gris-intense); margin-bottom: 0.8rem; }
+        .needs-box p { font-size: 0.85rem; color: var(--gris-doux); line-height: 1.6; }
 
-    footer{
-      background:var(--cacao-dark);
-      color:var(--white);
-      text-align:center;
-      padding:2.6rem 2rem;
-    }
-    .footer-logo{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.3rem;
-      letter-spacing:.24em;
-      margin-bottom:.6rem;
-    }
-    .footer-text{color:rgba(255,255,255,.55);font-size:.9rem}
+        /* ÉPILOGUE */
+        .epilogue { background: linear-gradient(135deg, var(--gris-intense), var(--gris-moyen)); text-align: center; padding: 5rem 5%; }
+        .epilogue .chapter-num { color: var(--or-premium); }
+        .epilogue .chapter-title { color: var(--creme-nude); font-size: 1.8rem; margin-bottom: 1rem; }
+        .epilogue-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(245,237,228,0.8); max-width: 500px; margin: 0 auto 2rem; }
+        .cta-button { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2.5rem; background: var(--or-premium); color: var(--noir-profond); text-decoration: none; border-radius: 50px; font-size: 0.85rem; font-weight: 500; transition: all 0.4s ease; }
+        .cta-button:hover { background: var(--creme-nude); transform: translateY(-2px); }
+        .cta-contact { margin-top: 1.5rem; font-size: 0.8rem; color: var(--or-premium); }
 
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(18px);transition:all .65s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
+        footer { background: var(--noir-profond); padding: 2.5rem 5%; text-align: center; }
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--or-premium); margin-bottom: 0.8rem; }
+        .footer-text { font-size: 0.7rem; color: rgba(245,237,228,0.4); }
 
-    /* Responsive */
-    @media (max-width: 1024px){
-      .grid-2{grid-template-columns:1fr}
-      .cards-3{grid-template-columns:1fr}
-      .tiktok-grid{grid-template-columns:1fr 1fr}
-      .ops-grid{grid-template-columns:1fr}
-      .actions{grid-template-columns:1fr}
-      .kpi-grid{grid-template-columns:repeat(2,1fr)}
-      .profile{grid-template-columns:1fr}
-      .skills-grid{grid-template-columns:repeat(2,1fr)}
-      .nav-links{display:none}
-    }
-    @media (max-width: 640px){
-      .tiktok-grid{grid-template-columns:1fr}
-      .kpi-grid{grid-template-columns:1fr}
-      .match-grid{grid-template-columns:1fr}
-    }
-  </style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .burger { display: block; }
+            .one-pager-grid, .paid-grid, .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: 1fr; }
+            .promesse-grid, .autrice-grid, .omnicanal-grid, .team-grid { grid-template-columns: 1fr; }
+            .lexique-content { gap: 1rem 2rem; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 4rem 5%; }
+            .chapter-title { font-size: 1.6rem; }
+            .hero-title { font-size: 2.2rem; }
+            .cas-grid { grid-template-columns: 1fr; }
+            .phase-actions { grid-template-columns: 1fr; }
+            .dashboard-grid, .risk-grid, .paid-kpi-grid, .budget-phases, .dashboard-actions-grid { grid-template-columns: 1fr; }
+            .cas-result-grid { flex-direction: column; gap: 1rem; }
+            .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: repeat(2, 1fr); }
+            .lexique-content { flex-direction: column; align-items: center; gap: 0.8rem; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 3rem 4%; }
+            .skills-grid, .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (hover: none) {
+            .cro-item:hover, .skill-item:hover, .action-card:hover { transform: none; }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-content">
-      <div class="preloader-logo">THÉOBROMA × SONIA</div>
-      <div class="preloader-bar"><div class="preloader-progress"></div></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-    <a href="#top" class="nav-logo">Dossier · 2026</a>
-    <ul class="nav-links">
-      <li><a href="#promise">Promesse</a></li>
-      <li><a href="#market">Terrain</a></li>
-      <li><a href="#tiktok">Étincelle</a></li>
-      <li><a href="#strategy">Formule</a></li>
-      <li><a href="#cockpit">Cockpit</a></li>
-      <li><a href="#why">Signature</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="stars">
-      <div class="star" style="top: 12%; left: 14%; animation-delay: 0s;"></div>
-      <div class="star" style="top: 22%; left: 82%; animation-delay: .6s;"></div>
-      <div class="star" style="top: 38%; left: 25%; animation-delay: 1.2s;"></div>
-      <div class="star" style="top: 18%; left: 62%; animation-delay: 1.8s;"></div>
-      <div class="star" style="top: 55%; left: 90%; animation-delay: 2.2s;"></div>
-      <div class="star" style="top: 72%; left: 10%; animation-delay: 2.8s;"></div>
-      <div class="star" style="top: 84%; left: 70%; animation-delay: 3.2s;"></div>
-      <div class="star" style="top: 28%; left: 45%; animation-delay: 3.6s;"></div>
+    <div class="preloader" id="preloader">
+        <div class="preloader-text">THÉOBROMA × SONIA</div>
+        <div class="preloader-line"></div>
     </div>
 
-    <div class="hero-content">
-      <span class="hero-badge">Dossier de candidature · Février 2026</span>
-      <h1 class="hero-title">
-        Le rituel de <span>croissance</span><br/>pour Théobroma Beauty
-      </h1>
-      <p class="hero-subtitle">
-        TikTok Shop, Shopify, Amazon, DACH. Une croissance élégante, mesurée, et rentable.
-      </p>
-      <p class="hero-prologue">
-        Transformer une preuve produit (clean, vegan, Swiss) en preuve business:
-        acquisition structurée, conversion optimisée, et expansion maîtrisée, sans sacrifier la marge.
-      </p>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
-      <div class="hero-author">
-        <div class="author-avatar">SC</div>
-        <div class="author-info">
-          <div class="author-name">Sonia Catic</div>
-          <div class="author-role">E-Commerce & Growth · Performance & Automation</div>
-        </div>
-      </div>
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><span class="chapter-num">I</span><a href="#promesse" onclick="closeMenu()">La Promesse</a></li>
+            <li><span class="chapter-num">II</span><a href="#cas" onclick="closeMenu()">Le Cas</a></li>
+            <li><span class="chapter-num">III</span><a href="#paid" onclick="closeMenu()">Paid Media</a></li>
+            <li><span class="chapter-num">IV</span><a href="#cro" onclick="closeMenu()">CRO Sprint</a></li>
+            <li><span class="chapter-num">V</span><a href="#tiktok" onclick="closeMenu()">TikTok Shop</a></li>
+            <li><span class="chapter-num">VI</span><a href="#amazon" onclick="closeMenu()">Amazon Europe</a></li>
+            <li><span class="chapter-num">VII</span><a href="#omnicanal" onclick="closeMenu()">Omnicanal</a></li>
+            <li><span class="chapter-num">VIII</span><a href="#formule" onclick="closeMenu()">La Formule</a></li>
+            <li><span class="chapter-num">IX</span><a href="#risks" onclick="closeMenu()">Risques</a></li>
+            <li><span class="chapter-num">X</span><a href="#cockpit" onclick="closeMenu()">Cockpit</a></li>
+            <li><span class="chapter-num">XI</span><a href="#autrice" onclick="closeMenu()">L'Autrice</a></li>
+        </ul>
     </div>
 
-    <div class="scroll-indicator">
-      <span>Ouvrir le dossier</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Le Rituel de Croissance</a>
+        <ul class="nav-links">
+            <li><a href="#promesse">Promesse</a></li>
+            <li><a href="#paid">Paid</a></li>
+            <li><a href="#formule">Formule</a></li>
+            <li><a href="#cockpit">Cockpit</a></li>
+            <li><a href="#autrice">Autrice</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </nav>
 
-  <!-- Chapter I -->
-  <section class="executive" id="promise">
-    <div class="section-header">
-      <div class="chapter-num">Chapitre I · La Promesse</div>
-      <h2 class="section-title">De la désirabilité à la rentabilité</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        Théobroma a déjà les codes: clean, premium, Swiss made. Mon rôle: transformer cet avantage en moteur de croissance rentable,
-        piloté à la marge et à la contribution.
-      </p>
-    </div>
-
-    <div class="container grid-2 reveal">
-      <div class="card exec-text">
-        <h3 class="exec-title">Une belle formule. Un système de croissance.</h3>
-        <p>
-          Le cacao a une signature rare: sensoriel, évocateur, premium sans en faire trop.
-          Avec votre positionnement clean et vos preuves de qualité, il ne manque qu’une chose:
-          <strong>un cockpit et une cadence d’exécution</strong>.
-        </p>
-        <p>
-          Ma méthode: <strong>tester vite, mesurer juste, scaler seulement quand la marge sourit</strong>.
-          Paid Media, CRO Shopify, TikTok Shop et Amazon se pilotent ensemble, pas en silos.
-        </p>
-
-        <div class="highlight">
-          <h4>Les 4 leviers à activer dès maintenant</h4>
-          <ul class="list">
-            <li><strong>TikTok Shop</strong> — de la vitrine à la caisse, avec unit economics protégés</li>
-            <li><strong>Paid Media orchestré</strong> — pilotage MER + contribution, pas seulement ROAS</li>
-            <li><strong>Expansion DACH</strong> — localisation + logistique + créas adaptées, sans improvisation</li>
-            <li><strong>Omnicanal</strong> — retail qui nourrit le digital et digital qui nourrit le retail</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stats-card">
-        <h3>Lecture marché (ordre de grandeur)</h3>
-        <div class="stats-grid">
-          <div class="stat"><span class="num">2–3K</span><span class="label">CHF/mois · budget test</span></div>
-          <div class="stat"><span class="num">3.5–6.0</span><span class="label">MER cible · early</span></div>
-          <div class="stat"><span class="num">1.6→2.2%</span><span class="label">CR Shopify · quick wins</span></div>
-          <div class="stat"><span class="num">+8%</span><span class="label">AOV via bundles</span></div>
-        </div>
-        <p class="note">
-          Chiffres présentés comme <strong>hypothèses de travail</strong> pour une marque premium comparable en Suisse romande,
-          à affiner dès accès aux analytics.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter II -->
-  <section class="market" id="market">
-    <div class="section-header">
-      <div class="chapter-num">Chapitre II · Le Terrain</div>
-      <h2 class="section-title">Clean premium, Swiss credibility, social commerce</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        Le marché est prêt. Les consommateurs veulent transparence, efficacité et une histoire incarnée.
-        La Suisse ajoute un vernis de confiance… à condition de convertir cette confiance en performance.
-      </p>
-    </div>
-
-    <div class="container cards-3">
-      <div class="market-card reveal">
-        <div class="market-icon">🌿</div>
-        <h3>Clean Beauty</h3>
-        <p>Des routines simples, des actifs compréhensibles, des preuves. La croissance vient quand l’expérience est fluide.</p>
-        <div class="market-stat"><span class="value">↑</span><span class="unit">demande en hausse</span></div>
-      </div>
-
-      <div class="market-card reveal">
-        <div class="market-icon">🇨🇭</div>
-        <h3>Swiss Made</h3>
-        <p>Perception premium immédiate. À traduire en pricing ladder, bundles, et réassurance (retail + digital).</p>
-        <div class="market-stat"><span class="value">+</span><span class="unit">trust & premium</span></div>
-      </div>
-
-      <div class="market-card reveal">
-        <div class="market-icon">📱</div>
-        <h3>Social Commerce</h3>
-        <p>Découverte sur TikTok, considération sur Instagram, conversion sur Shop, répétition via email/SMS.</p>
-        <div class="market-stat"><span class="value">∞</span><span class="unit">boucle organique→paid</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter III -->
-  <section class="tiktok" id="tiktok">
-    <div class="stars">
-      <div class="star" style="top: 16%; left: 6%; animation-delay: .3s;"></div>
-      <div class="star" style="top: 26%; left: 96%; animation-delay: 1.1s;"></div>
-      <div class="star" style="top: 64%; left: 8%; animation-delay: 2.1s;"></div>
-      <div class="star" style="top: 82%; left: 92%; animation-delay: .7s;"></div>
-    </div>
-
-    <div class="section-header">
-      <div class="chapter-num">Chapitre III · L’Étincelle</div>
-      <h2 class="section-title">TikTok Shop: vitrine + caisse</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        La beauté se voit. Texture, routine, avant/après, gestuelle: TikTok transforme une preuve sensorielle en achat impulsif.
-        Mais on ne scale pas un canal si on ne protège pas l’unité économique.
-      </p>
-    </div>
-
-    <div class="container">
-      <div class="alert reveal">
-        <div class="icon">⚡</div>
-        <div>
-          <h3>Fenêtre d’opportunité, mais discipline d’exécution</h3>
-          <p>
-            Ma priorité: activer TikTok Shop sans brûler la marge.
-            Je structure le catalogue, les bundles, les règles promo, et la logistique avant d’ouvrir le robinet.
-          </p>
-        </div>
-      </div>
-
-      <div class="tiktok-grid reveal">
-        <div class="tiktok-pill">
-          <div class="big">💯</div>
-          <div class="label">Preuve rapide</div>
-          <div class="desc">Formats routine, texture, score, avis.</div>
-        </div>
-        <div class="tiktok-pill">
-          <div class="big">🍫</div>
-          <div class="label">Storytelling cacao</div>
-          <div class="desc">Signature visuelle + différenciation.</div>
-        </div>
-        <div class="tiktok-pill">
-          <div class="big">✨</div>
-          <div class="label">Rituel 14 jours</div>
-          <div class="desc">Narration progression + réassurance.</div>
-        </div>
-        <div class="tiktok-pill">
-          <div class="big">🧾</div>
-          <div class="label">Marge protégée</div>
-          <div class="desc">Bundles + seuils promo + fees buffer.</div>
-        </div>
-      </div>
-
-      <div class="ops-box reveal">
-        <h4>Unit economics TikTok Shop (cadre de départ)</h4>
-        <div class="ops-grid">
-          <div class="ops-item">
-            <strong>Promo max</strong>
-            <span>Définir un plafond (ex: 10–15%) selon marge par SKU.</span>
-          </div>
-          <div class="ops-item">
-            <strong>Bundle protecteur</strong>
-            <span>Routines 2–3 produits pour remonter AOV + absorber fees.</span>
-          </div>
-          <div class="ops-item">
-            <strong>SAV & retours</strong>
-            <span>SLA clair + scripts + contrôle du refund rate.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter IV -->
-  <section class="strategy" id="strategy">
-    <div class="section-header">
-      <div class="chapter-num">Chapitre IV · La Formule</div>
-      <h2 class="section-title">Plan 30–60–90: outcomes, pas activités</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        Une croissance saine ressemble à une routine: simple, répétable, mesurée. Chaque phase livre un résultat concret.
-      </p>
-    </div>
-
-    <div class="container phases">
-      <div class="phase reveal">
-        <div>
-          <div class="badge"><span>1</span></div>
-          <div class="days">Jours 1–30</div>
-        </div>
-        <div>
-          <h3>Base rentable</h3>
-          <p>Tracking clean, structure Ads, quick wins CRO. Objectif: stabiliser MER et augmenter CR sans sur-dépenser.</p>
-          <div class="actions">
-            <div class="action"><h4>🔧 CRO Shopify</h4><p>Checkout, trust, PDP, preuves sociales, vitesse.</p></div>
-            <div class="action"><h4>📊 Ads structure</h4><p>Naming, audiences, créas, retargeting propre.</p></div>
-            <div class="action"><h4>🧪 Bundles tests</h4><p>2 bundles routines + upsell simple.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phase reveal">
-        <div>
-          <div class="badge"><span>2</span></div>
-          <div class="days">Jours 31–60</div>
-        </div>
-        <div>
-          <h3>Activation TikTok Shop</h3>
-          <p>On ouvre le canal avec discipline: cadence créative, lives, affiliés, et suivi rentabilité.</p>
-          <div class="actions">
-            <div class="action"><h4>🎥 Créas sprint</h4><p>20–30 variations UGC + hooks + learnings.</p></div>
-            <div class="action"><h4>🛍️ TikTok Shop</h4><p>Catalogue, bundles, règles promo, process retours.</p></div>
-            <div class="action"><h4>📈 Scale contrôlé</h4><p>Scaler uniquement les combinaisons profitables.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phase reveal">
-        <div>
-          <div class="badge"><span>3</span></div>
-          <div class="days">Jours 61–90</div>
-        </div>
-        <div>
-          <h3>Expansion & répétition</h3>
-          <p>Préparer DACH + Amazon readiness et augmenter repeat via email/Klaviyo et routines.</p>
-          <div class="actions">
-            <div class="action"><h4>🇩🇪 DACH test</h4><p>Localisation, créas DE, landing, retours/logistique.</p></div>
-            <div class="action"><h4>📦 Amazon prep</h4><p>Listings, assets, PPC “brand protection”.</p></div>
-            <div class="action"><h4>📧 Klaviyo</h4><p>5 flows essentiels + 2 campagnes/mois.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter V -->
-  <section class="projections" id="cockpit">
-    <div class="section-header">
-      <div class="chapter-num">Chapitre V · Le Cockpit</div>
-      <h2 class="section-title">Une routine de pilotage pour le CEO</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        Objectifs raisonnables, budget sobre, et un dashboard hebdo qui transforme les données en décisions.
-      </p>
-    </div>
-
-    <div class="container">
-      <div class="kpi-grid reveal">
-        <div class="kpi">
-          <div class="name">MER global</div>
-          <div class="cur">Cible early</div>
-          <div class="target">≥ 4.0</div>
-          <div class="tag">marge-first</div>
-        </div>
-        <div class="kpi">
-          <div class="name">Conversion</div>
-          <div class="cur">Après quick wins</div>
-          <div class="target">2.2%</div>
-          <div class="tag">Shopify CRO</div>
-        </div>
-        <div class="kpi">
-          <div class="name">CAC</div>
-          <div class="cur">Cible</div>
-          <div class="target">≤ 25</div>
-          <div class="tag">CHF</div>
-        </div>
-        <div class="kpi">
-          <div class="name">TikTok Shop</div>
-          <div class="cur">À 6 mois</div>
-          <div class="target">8K</div>
-          <div class="tag">CHF/mois</div>
-        </div>
-      </div>
-
-      <div class="disclaimer reveal">
-        <strong>Note de transparence:</strong> objectifs proposés sous réserve de validation analytics (GA4, Shopify, Ads, marges par SKU).
-      </div>
-
-      <div class="cockpit reveal">
-        <h4>Le dashboard hebdo (ce que je vous envoie chaque lundi)</h4>
-        <p>
-          Une lecture simple: <strong>ce qui a vendu</strong>, <strong>ce qui a coûté</strong>, <strong>ce qu’on a appris</strong>, et <strong>ce qu’on décide</strong>.
-        </p>
-        <div class="cockpit-list">
-          <div class="cockpit-li">CA digital / TikTok Shop / Amazon</div>
-          <div class="cockpit-li">MER global + par canal</div>
-          <div class="cockpit-li">CAC, AOV, marge estimée, contribution</div>
-          <div class="cockpit-li">Top 3 produits & top 3 créas</div>
-          <div class="cockpit-li">Stock couverture (best sellers)</div>
-          <div class="cockpit-li">3 décisions à valider (semaine)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter VI -->
-  <section class="why" id="why">
-    <div class="section-header">
-      <div class="chapter-num">Chapitre VI · La Signature</div>
-      <h2 class="section-title">Une croissance élégante, sans perdre l’âme</h2>
-      <div class="section-line"></div>
-      <p class="section-kicker">
-        Je viens de la beauté, je pilote la performance, et j’automatise ce qui doit l’être pour libérer l’équipe.
-      </p>
-    </div>
-
-    <div class="container">
-      <div class="profile reveal">
-        <div>
-          <div class="avatar">SC</div>
-          <h3>Sonia Catic</h3>
-          <div class="title">E-Commerce & Growth · Performance & Automation</div>
-        </div>
-
-        <div class="signature">
-          <h4>Un profil aligné avec vos besoins</h4>
-          <p>
-            Mon obsession: faire grandir une marque sans lui faire perdre son exigence.
-            Je structure l’acquisition, j’améliore la conversion, et je protège la rentabilité avec un cockpit simple.
-          </p>
-
-          <div class="match-grid">
-            <!-- ✅ BUG FIX HERE: removed orphan </span> and kept consistent icon -->
-            <div class="match-item"><span class="icon">✍️</span><p><strong>Copywriting conversion</strong> — Rédaction qui vend, pas qui décore</p></div>
-            <div class="match-item"><span class="icon">💄</span><p><strong>Luxe & Beauty</strong> — Gucci, Ladurée, Buzz Beauty</p></div>
-            <div class="match-item"><span class="icon">🇨🇭</span><p><strong>Marché Suisse</strong> — Terrain FR/DE/romande</p></div>
-            <div class="match-item"><span class="icon">📱</span><p><strong>TikTok native</strong> — formats & cadence (preuve sociale)</p></div>
-            <div class="match-item"><span class="icon">🌍</span><p><strong>Multilingue</strong> — FR, EN C1, DE B1, ES B2</p></div>
-            <div class="match-item"><span class="icon">⚙️</span><p><strong>Automation</strong> — Make/Zapier, Airtable, process scalables</p></div>
-          </div>
-
-          <div class="skills-section">
-            <h4>Outils & compétences</h4>
-            <div class="skills-grid">
-              <div class="skill-item"><div class="skill-icon">📊</div><div class="skill-name">Meta Ads</div></div>
-              <div class="skill-item"><div class="skill-icon">🔍</div><div class="skill-name">Google Ads</div></div>
-              <div class="skill-item"><div class="skill-icon">🎵</div><div class="skill-name">TikTok Ads</div></div>
-              <div class="skill-item"><div class="skill-icon">🛒</div><div class="skill-name">Shopify</div></div>
-              <div class="skill-item"><div class="skill-icon">📧</div><div class="skill-name">Klaviyo</div></div>
-              <div class="skill-item"><div class="skill-icon">⚙️</div><div class="skill-name">Make/Zapier</div></div>
-              <div class="skill-item"><div class="skill-icon">📋</div><div class="skill-name">Airtable</div></div>
-              <div class="skill-item"><div class="skill-icon">📌</div><div class="skill-name">Pinterest</div></div>
-              <div class="skill-item"><div class="skill-icon">🤖</div><div class="skill-name">AI Tools</div></div>
+    <!-- PROLOGUE -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-chapter">Prologue</div>
+            <h1 class="hero-title">Le Rituel<br>de <em>Croissance</em></h1>
+            <p class="hero-subtitle">Théobroma, la clean beauty suisse au cacao, a une histoire rare : premium, sensoriel, résultats.<br>Voici comment la transformer en success story digital.</p>
+            <div class="hero-meta">
+                <span class="hero-author-tag">Sonia Catic</span>
+                <span>E-Commerce & Growth Manager</span>
+                <span>Février 2026</span>
             </div>
-
-            <div class="needs-box">
-              <h5>Ce dont j’ai besoin pour réussir</h5>
-              <p>
-                Accès Shopify, GA4, Meta Business Manager, Google Ads, Klaviyo, stock & marges par SKU, plan retail 2026.
-                Avec ça, je livre en 30 jours.
-              </p>
-            </div>
-          </div>
-
         </div>
-      </div>
+        <div class="scroll-hint">
+            <span>Tourner la page</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- LEXIQUE -->
+    <div class="lexique">
+        <div class="lexique-content">
+            <div class="lexique-item"><span class="term">MER</span><span class="def">= CA digital / dépenses paid (vue CEO rentabilité)</span></div>
+            <div class="lexique-item"><span class="term">CAC</span><span class="def">= coût d'acquisition client</span></div>
+            <div class="lexique-item"><span class="term">AOV</span><span class="def">= panier moyen</span></div>
+            <div class="lexique-item"><span class="term">LTV</span><span class="def">= valeur client sur la durée</span></div>
+            <div class="lexique-item"><span class="term">CR</span><span class="def">= taux de conversion</span></div>
+        </div>
     </div>
-  </section>
 
-  <!-- Epilogue -->
-  <section class="epilogue">
-    <div class="chapter-num">Épilogue</div>
-    <h2 class="chapter-title">Une croissance élégante, mesurée, et rentable.</h2>
-    <p class="epilogue-text">
-      Disponible pour un échange de 20 minutes.
-      Je peux présenter un plan de pilotage KPI dès la première semaine.
-    </p>
-    <a href="mailto:sonia.catic@hotmail.com" class="cta-button">
-      <span>Tourner la dernière page</span><span>→</span>
-    </a>
-    <p class="cta-contact">📞 +41 78 777 79 78 · sonia.catic@hotmail.com</p>
-  </section>
+    <!-- ONE PAGER -->
+    <section class="one-pager" id="sommaire">
+        <div class="chapter-header">
+            <div class="chapter-num">En un coup d'œil</div>
+            <h2 class="chapter-title">L'Essentiel</h2>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="one-pager-grid reveal">
+            <div class="one-pager-card">
+                <h4>3 Priorités Théobroma</h4>
+                <ul>
+                    <li><strong>TikTok Shop EU</strong> : faire émerger le rituel cacao (hook visuel + UGC)</li>
+                    <li><strong>Amazon</strong> : protéger l'image premium (Brand Registry + A+) avant PPC</li>
+                    <li><strong>DACH</strong> : terrain naturel pour premium + efficacité + discipline</li>
+                </ul>
+            </div>
+            <div class="one-pager-card">
+                <h4>3 KPI (après 30j stabilisation)</h4>
+                <ul>
+                    <li>MER 3.0–4.0 (rentabilité)</li>
+                    <li>CAC 25–35 CHF (selon AOV)</li>
+                    <li>Repeat 60j ≥ 18% (fidélité)</li>
+                </ul>
+            </div>
+            <div class="one-pager-card">
+                <h4>3 Quick Wins S1</h4>
+                <ul>
+                    <li>Audit conversion Shopify</li>
+                    <li>Structure campagnes Meta</li>
+                    <li>Dossier KYB TikTok Shop</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ceo-rule reveal">
+            <strong>Règle CEO (rentabilité)</strong> : on scale uniquement si <strong>MER ≥ 3.0</strong> sur <strong>7 jours</strong>. Sinon, on coupe, on apprend, on relance.
+        </div>
+        <div class="scorecard reveal">
+            <h4>
+                <svg class="cacao-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <ellipse cx="32" cy="32" rx="14" ry="22" stroke="currentColor" stroke-width="2"/>
+                    <path d="M32 10C28 18 26 24 26 32C26 40 28 46 32 54" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M32 10C36 18 38 24 38 32C38 40 36 46 32 54" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                    <ellipse cx="32" cy="32" rx="5" ry="8" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+                </svg>
+                Théobroma Scorecard (Semaine 1)
+            </h4>
+            <div class="scorecard-grid">
+                <div class="scorecard-item">Top 5 SKU + marge + stock</div>
+                <div class="scorecard-item">AOV actuel + seuil livraison gratuite</div>
+                <div class="scorecard-item">Repeat 60j/90j (si dispo)</div>
+                <div class="scorecard-item">Mix retail vs online</div>
+                <div class="scorecard-item">3 claims produits "safe & proof"</div>
+                <div class="scorecard-item">10 assets UGC prioritaires à produire</div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <div class="footer-logo">THÉOBROMA × SONIA</div>
-    <p class="footer-text">Dossier préparé avec soin · Février 2026</p>
-  </footer>
+    <!-- CACAO INTERCHAPTER -->
+    <div class="cacao-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.22)"></path>
+            <path d="M0,80 C180,130 360,30 540,80 C720,130 900,30 1080,80 C1140,98 1180,105 1200,110" fill="none" stroke="rgba(45,27,20,0.25)" stroke-width="2"></path>
+        </svg>
+    </div>
+    <div class="cacao-interchapter">
+        <div class="cacao-photo">
+            <img src="https://theobromabeauty.com/cdn/shop/files/cosmetique-au-cacao.jpg?v=1706686265&width=1056" alt="Fèves de cacao, matière première premium Théobroma." loading="lazy">
+        </div>
+    </div>
 
-  <script>
-    // Preloader (short)
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const p = document.getElementById('preloader');
-        if (p) p.classList.add('hidden');
-      }, 800);
-    });
+    <!-- CHAPITRE I - PROMESSE -->
+    <section class="promesse" id="promesse">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre I</div>
+            <h2 class="chapter-title">La Promesse</h2>
+            <p class="chapter-subtitle">Ce qu'il gagne avec moi.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="promesse-content">
+            <p class="promesse-intro reveal">Une marque clean beauty premium avec preuves (certifications, avis, efficacité prouvée) mérite un <strong>système de croissance rentable</strong> : acquisition structurée, conversion optimisée, expansion maîtrisée.</p>
+            <div class="promesse-grid reveal">
+                <div class="promesse-text">
+                    <p>Le positionnement est déjà fort : <strong>vegan, dermo-compatible, premium en Suisse, efficacité prouvée</strong>. Ce qu'il manque, c'est une machine de croissance qui protège la marge tout en scalant.</p>
+                    <div class="promesse-quote">Ma philosophie : tester vite, mesurer juste, scaler seulement quand la marge sourit.</div>
+                    <div class="opportunity-box theo-box">
+                        <div class="theo-box-header">
+                            <div class="svg-icon-large">
+                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cacao">
+                                    <path d="M32 6C44 6 54 19 54 32C54 48 42 58 32 58C22 58 10 48 10 32C10 19 20 6 32 6Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M32 10C28 16 26 22 26 32C26 42 28 49 32 54" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                                    <path d="M32 10C36 16 38 22 38 32C38 42 36 49 32 54" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                                </svg>
+                            </div>
+                            <h4>Pourquoi Théobroma gagne</h4>
+                        </div>
+                        <ul class="opportunity-list">
+                            <li><strong>Cacao = différenciant visuel</strong> — Ingrédient hero pour TikTok (texture, couleur, ritual)</li>
+                            <li><strong>Clean + premium</strong> — Panier naturellement élevé + repeat</li>
+                            <li><strong>Swiss Made</strong> — Confiance + prix premium accepté</li>
+                            <li><strong>Retail existant</strong> — Levier acquisition (QR → email → repeat online)</li>
+                        </ul>
+                        <div class="theo-box-image">
+                            <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soins-cosmetique.jpg?v=1706686092&width=600" alt="Main tenant une fève de cacao" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="opportunity-box">
+                        <h4>Les canaux clés</h4>
+                        <p class="leviers-phrase">Paid Media, CRO, TikTok Shop, Amazon, Omnicanal — chaque levier détaillé dans les chapitres III à VII avec checklists opérationnelles.</p>
+                    </div>
+                </div>
+                <div class="tendances-card">
+                    <h4>Tendances observées</h4>
+                    <ul class="tendances-list">
+                        <li>Social commerce en forte hausse (découverte + conversion)</li>
+                        <li>Retail-to-digital accélère (QR, email capture)</li>
+                        <li>Premium clean tire le panier moyen</li>
+                        <li>Marques suisses bien perçues en DACH</li>
+                    </ul>
+                    <div class="product-visual" style="margin-top: 1.5rem;">
+                        <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=600" alt="Pot Théobroma sur poudre de cacao" loading="lazy" style="border-radius: 12px; max-height: 180px; width: 100%; object-fit: cover;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#cas">Chapitre suivant →</a></div>
+    </section>
 
-    // Navbar scroll
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (!nav) return;
-      nav.classList.toggle('scrolled', window.pageYOffset > 50);
-    });
+    <!-- CACAO DIVIDER -->
+    <div class="cacao-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.15)"></path>
+        </svg>
+    </div>
 
-    // Smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const href = a.getAttribute('href');
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
+    <!-- CHAPITRE II - CAS D'USAGE -->
+    <section class="cas-usage" id="cas">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre II</div>
+            <h2 class="chapter-title">Le Cas d'Usage</h2>
+            <p class="chapter-subtitle">Une histoire déjà écrite.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="cas-card reveal">
+            <div class="cas-header">
+                <span class="cas-badge">Clean Skincare · Suisse Romande</span>
+                <span class="cas-title">E-commerce premium</span>
+            </div>
+            <p class="cas-disclaimer">Exemple représentatif (valeurs illustratives). Les ratios seront recalibrés dès l'accès aux données réelles.</p>
+            <div class="cas-grid">
+                <div class="cas-step"><div class="cas-step-num">1</div><h5>Contexte</h5><p>CA CHF 15K/mois, AOV ~CHF 65, taux 1.7%</p></div>
+                <div class="cas-step"><div class="cas-step-num">2</div><h5>Problème</h5><p>CAC élevé, ROAS instable, rentabilité incertaine</p></div>
+                <div class="cas-step"><div class="cas-step-num">3</div><h5>Actions</h5><p>Restructuration Meta, UGC, bundles routine, checkout</p></div>
+                <div class="cas-step"><div class="cas-step-num">4</div><h5>Durée</h5><p>8 semaines, budget CHF 2'500/mois</p></div>
+            </div>
+            <div class="cas-result">
+                <div class="cas-result-grid">
+                    <div class="cas-result-item"><span class="value">+35%</span><span class="label">CA e-commerce</span></div>
+                    <div class="cas-result-item"><span class="value">CHF 24</span><span class="label">CAC stabilisé</span></div>
+                    <div class="cas-result-item"><span class="value">2.1%</span><span class="label">Taux conversion</span></div>
+                    <div class="cas-result-item"><span class="value">4.0</span><span class="label">MER (pic stabilisé)</span></div>
+                </div>
+            </div>
+            <p class="cas-theo">→ Mêmes méthodes, même rigueur. Un positionnement premium avec preuves = résultats encore meilleurs.</p>
+        </div>
+        <div class="page-turn"><a href="#paid">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE III - PAID MEDIA -->
+    <section class="paid-media" id="paid">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre III</div>
+            <div class="svg-icon-large" style="margin: 0 auto 1rem;">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Paid Media">
+                    <circle cx="32" cy="32" r="18" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                    <path d="M32 14V8M50 32H56M32 50V56M14 32H8" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                </svg>
+            </div>
+            <h2 class="chapter-title">Paid Media Blueprint</h2>
+            <p class="chapter-subtitle">Structure, objectifs, arbitrage.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="paid-content">
+            <div class="paid-grid reveal">
+                <div class="paid-card">
+                    <h4>Prospecting</h4>
+                    <div class="platform">META ADS</div>
+                    <ul>
+                        <li>Rituel cacao + bénéfices peau</li>
+                        <li>UGC before/after + témoignages</li>
+                        <li>Lookalikes acheteurs Théobroma</li>
+                        <li>3-5 angles créa/semaine</li>
+                    </ul>
+                </div>
+                <div class="paid-card">
+                    <h4>Intent & Brand</h4>
+                    <div class="platform">GOOGLE ADS</div>
+                    <ul>
+                        <li>Brand "Théobroma" (protection)</li>
+                        <li>Intent "routine cacao" / "soin suisse"</li>
+                        <li>Shopping top SKUs</li>
+                        <li>Problème peau → solution</li>
+                    </ul>
+                </div>
+                <div class="paid-card">
+                    <h4>Discovery & Shop</h4>
+                    <div class="platform">TIKTOK + PINTEREST</div>
+                    <ul>
+                        <li>TikTok: proof + story + shopping</li>
+                        <li>Pinterest: inspiration routines premium</li>
+                        <li>UGC natif format vertical</li>
+                        <li>Affiliate creators program</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="paid-kpi reveal">
+                <h5>KPI Paid Media (spécifiques acquisition)</h5>
+                <div class="paid-kpi-grid">
+                    <div class="paid-kpi-item"><span class="value">≥ 1.2%</span><span class="label">CTR créa</span><span class="paid-note">si baisse → nouvelles créas</span></div>
+                    <div class="paid-kpi-item"><span class="value">maîtrisé</span><span class="label">CPM</span><span class="paid-note">piloté vs. marge & saison</span></div>
+                    <div class="paid-kpi-item"><span class="value">ref. One-pager</span><span class="label">CAC new</span><span class="paid-note">25-35 CHF selon AOV</span></div>
+                    <div class="paid-kpi-item"><span class="value">Règle CEO</span><span class="label">MER</span><span class="paid-note">≥ 3.0 sur 7 jours</span></div>
+                </div>
+                <p class="paid-kpi-note"><strong>Marge contributive validée (semaine 1)</strong> : COGS + fulfilment + fees + retours, pour définir le seuil de rentabilité par SKU.</p>
+            </div>
+            <div class="budget-box reveal">
+                <h4>Budget & Garde-fous (90 jours)</h4>
+                <div class="budget-phases">
+                    <div class="budget-phase">
+                        <div class="period">Phase Test · J1-30</div>
+                        <div class="amount">CHF 50-80/j</div>
+                        <div class="detail">~CHF 1'500-2'400/mois</div>
+                    </div>
+                    <div class="budget-phase">
+                        <div class="period">Phase Scale · J31-60</div>
+                        <div class="amount">CHF 80-120/j</div>
+                        <div class="detail">Si MER ≥ 3 confirmé</div>
+                    </div>
+                    <div class="budget-phase">
+                        <div class="period">Phase Expand · J61-90</div>
+                        <div class="amount">CHF 120-180/j</div>
+                        <div class="detail">+DACH si signaux ok</div>
+                    </div>
+                </div>
+                <div class="budget-rule">
+                    <p><strong>Garde-fou principal</strong> : application stricte de la <strong>Règle CEO</strong> (cf. One-pager). Stop-loss immédiat si la marge est menacée.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#cro">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE IV - CRO SPRINT -->
+    <section class="cro-sprint" id="cro">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre IV</div>
+            <h2 class="chapter-title">CRO Sprint Shopify</h2>
+            <p class="chapter-subtitle">8 leviers · Semaines 1-2</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="cro-content">
+            <p class="cro-intro reveal">Avant de pousser le trafic, on optimise la conversion. Chaque point gagné = budget Ads économisé.</p>
+            <div class="theo-highlight reveal">
+                <div class="icon">
+                    <svg width="40" height="40" viewBox="0 0 64 64" fill="none"><path d="M50 14C34 14 18 26 14 44C30 48 46 36 50 14Z" stroke="currentColor" stroke-width="2"/><path d="M18 40C24 34 34 26 46 20" stroke="currentColor" stroke-width="2" opacity="0.7"/></svg>
+                </div>
+                <div class="content">
+                    <h5>Focus Théobroma</h5>
+                    <p>PDP "rituel cacao" : ingrédients clean + texture sensorielle + before/after. Bundles = Starter / Cure 14j / Routine complète.</p>
+                </div>
+            </div>
+            <div class="cro-grid reveal">
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                    <h5>PDP "Théobroma"</h5>
+                    <p>Rituel + ingrédients clean + before/after</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                    <h5>Bundles "Rituel Cacao"</h5>
+                    <p>Starter / Cure 14j / Routine complète</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+                    <h5>Seuil livraison</h5>
+                    <p>Free shipping ≥ seuil rentable</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                    <h5>Checkout fluide</h5>
+                    <p>Express, trust badges, upsell</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <h5>Reviews intégrés</h5>
+                    <p>Social proof + UGC photos</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                    <h5>Quiz routine</h5>
+                    <p>Recommandation personnalisée</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <h5>Page speed</h5>
+                    <p>LCP < 2.5s, mobile-first</p>
+                </div>
+                <div class="cro-item">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+                    <h5>Offres welcome</h5>
+                    <p>-10% first order (email capture)</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#tiktok">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE V - TIKTOK SHOP OPS -->
+    <section class="tiktok-ops" id="tiktok">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre V</div>
+            <h2 class="chapter-title">TikTok Shop Europe</h2>
+            <p class="chapter-subtitle">Checklist opérationnelle.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="ops-content">
+            <div class="ops-grid reveal">
+                <div class="ops-card">
+                    <h5>KYB & Setup</h5>
+                    <ul>
+                        <li>Dossier KYB complet</li>
+                        <li>Connexion Shopify</li>
+                        <li>Paramétrage shop</li>
+                        <li>Politique retours</li>
+                    </ul>
+                </div>
+                <div class="ops-card">
+                    <h5>Catalogue</h5>
+                    <ul>
+                        <li>SKUs prioritaires</li>
+                        <li>Bundles TikTok-only</li>
+                        <li>Pricing (marge protégée)</li>
+                        <li>Visuels format vertical</li>
+                    </ul>
+                </div>
+                <div class="ops-card">
+                    <h5>Fulfillment</h5>
+                    <ul>
+                        <li>SLA expédition (48h)</li>
+                        <li>Process retours clair</li>
+                        <li>Stock buffer 20%</li>
+                        <li>Tracking automatique</li>
+                    </ul>
+                </div>
+                <div class="ops-card">
+                    <h5>Créateurs</h5>
+                    <ul>
+                        <li>Programme affiliés</li>
+                        <li>Brief créatif</li>
+                        <li>Commission structure</li>
+                        <li>Validation brand</li>
+                    </ul>
+                </div>
+                <div class="ops-card">
+                    <h5>Contenu</h5>
+                    <ul>
+                        <li>20-30 créas/mois</li>
+                        <li>UGC + produit</li>
+                        <li>Hooks testés</li>
+                        <li>Lives (optionnel)</li>
+                    </ul>
+                </div>
+                <div class="ops-card">
+                    <h5>Unit Economics</h5>
+                    <ul>
+                        <li>Marge respectée (cf. Paid KPI)</li>
+                        <li>Discount capé 15% max</li>
+                        <li>Panier rentable CHF 50+</li>
+                        <li>Commissions variables*</li>
+                    </ul>
+                    <p class="ops-note">*Selon catégorie/pays, à valider au setup</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#amazon">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE VI - AMAZON EUROPE -->
+    <section class="amazon-europe" id="amazon">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre VI</div>
+            <h2 class="chapter-title">Amazon Europe</h2>
+            <p class="chapter-subtitle">Checklist readiness.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="amazon-content">
+            <p class="amazon-intro reveal">Amazon = reach incrémental + brand protection. Objectif : être présent là où les clients cherchent.</p>
+            <div class="amazon-grid reveal">
+                <div class="amazon-card">
+                    <h5>Catalogue & EAN</h5>
+                    <ul>
+                        <li>EAN/UPC pour chaque SKU</li>
+                        <li>Fiches produit complètes</li>
+                        <li>Catégorisation correcte</li>
+                        <li>Mots-clés backend</li>
+                    </ul>
+                </div>
+                <div class="amazon-card">
+                    <h5>Brand Registry</h5>
+                    <ul>
+                        <li>Enregistrement marque</li>
+                        <li>A+ Content (brand story)</li>
+                        <li>Store page dédiée</li>
+                        <li>Protection contrefaçons</li>
+                    </ul>
+                </div>
+                <div class="amazon-card">
+                    <h5>Listing Templates</h5>
+                    <ul>
+                        <li>Titres optimisés SEO</li>
+                        <li>Bullet points structurés</li>
+                        <li>Images lifestyle + produit</li>
+                        <li>Vidéos (si possible)</li>
+                    </ul>
+                </div>
+                <div class="amazon-card">
+                    <h5>Assets visuels</h5>
+                    <ul>
+                        <li>Photos fond blanc</li>
+                        <li>Infographies bénéfices</li>
+                        <li>UGC (avec droits)</li>
+                        <li>Claims conformes</li>
+                    </ul>
+                </div>
+                <div class="amazon-card">
+                    <h5>PPC Strategy</h5>
+                    <ul>
+                        <li>Brand defense (exact)</li>
+                        <li>Category targeting</li>
+                        <li>Competitor conquest</li>
+                        <li>ACOS cible défini</li>
+                    </ul>
+                </div>
+                <div class="amazon-card">
+                    <h5>Ops & Fulfillment</h5>
+                    <ul>
+                        <li>FBA vs FBM (décision)</li>
+                        <li>Stock EU (localisation)</li>
+                        <li>Retours process</li>
+                        <li>SLA & metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#omnicanal">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE VII - OMNICANAL -->
+    <section class="omnicanal" id="omnicanal">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre VII</div>
+            <div class="svg-icon-large" style="margin: 0 auto 1rem;">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Omnicanal">
+                    <path d="M24 36L18 42C14 46 14 52 18 56C22 60 28 60 32 56L38 50" stroke="currentColor" stroke-width="2"/>
+                    <path d="M40 28L46 22C50 18 50 12 46 8C42 4 36 4 32 8L26 14" stroke="currentColor" stroke-width="2"/>
+                    <path d="M26 38L38 26" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                </svg>
+            </div>
+            <h2 class="chapter-title">Omnicanal Concret</h2>
+            <p class="chapter-subtitle">Retail ↔ Digital en synergie.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="omnicanal-content">
+            <div class="omnicanal-grid reveal">
+                <div class="omnicanal-col">
+                    <h4>Retail Théobroma → Digital</h4>
+                    <div class="direction">Le retail comme machine d'acquisition</div>
+                    <ul>
+                        <li><strong>QR codes produits</strong> — vers routine cacao + réassort</li>
+                        <li><strong>Welcome flow</strong> — capture email → offre online</li>
+                        <li><strong>Post-purchase card</strong> — "continuez votre rituel en ligne"</li>
+                        <li><strong>Sampling tracké</strong> — code unique → repeat online</li>
+                    </ul>
+                </div>
+                <div class="omnicanal-col">
+                    <h4>Digital → Retail</h4>
+                    <div class="direction">Créer du trafic store mesurable</div>
+                    <ul>
+                        <li><strong>Store locator</strong> — intégré checkout + emails</li>
+                        <li><strong>Campagnes géolocalisées</strong> — Meta radius</li>
+                        <li><strong>UGC retail</strong> — "essayé chez [partenaire]"</li>
+                        <li><strong>ROPO estimé</strong> — view online → buy offline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#formule">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE VIII - FORMULE DÉTAILLÉE -->
+    <section class="formule" id="formule">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre VIII</div>
+            <div class="svg-icon-large" style="margin: 0 auto 1rem;">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Growth">
+                    <path d="M14 44L26 32L34 40L50 22" stroke="currentColor" stroke-width="2"/>
+                    <path d="M46 22H50V26" stroke="currentColor" stroke-width="2"/>
+                    <path d="M32 10L34 16L40 18L34 20L32 26L30 20L24 18L30 16L32 10Z" fill="currentColor" opacity="0.25"/>
+                </svg>
+            </div>
+            <h2 class="chapter-title">La Formule</h2>
+            <p class="chapter-subtitle">90 jours · Actions concrètes · Outcomes mesurables.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="phases-detailed">
+            <div class="phase-block reveal">
+                <div class="phase-header">
+                    <div class="phase-num-large">1</div>
+                    <div class="phase-info">
+                        <h4>Base rentable</h4>
+                        <p>Tracking + structure Ads + quick wins CRO → MER stabilisé, CR en hausse.</p>
+                    </div>
+                    <div class="phase-period">JOURS 1–30</div>
+                </div>
+                <div class="phase-actions">
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+                        <h5>CRO Shopify</h5>
+                        <p>Checkout, trust, PDP, preuves sociales, vitesse.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+                        <h5>Ads structure</h5>
+                        <p>Naming, audiences, créas, retargeting propre.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                        <h5>Bundles tests</h5>
+                        <p>2 bundles routines + upsell simple.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-block reveal">
+                <div class="phase-header">
+                    <div class="phase-num-large">2</div>
+                    <div class="phase-info">
+                        <h4>Théobroma sur TikTok Shop</h4>
+                        <p>Faire de Théobroma la référence "cacao ritual" en social commerce FR + DACH.</p>
+                    </div>
+                    <div class="phase-period">JOURS 31–60</div>
+                </div>
+                <div class="phase-actions">
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <h5>Créas sprint</h5>
+                        <p>20–30 variations UGC + hooks + learnings.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                        <h5>TikTok Shop</h5>
+                        <p>Go-live + 1ère boucle créas, affiliés, offres/bundles.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+                        <h5>Scale contrôlé</h5>
+                        <p>Scaler uniquement les combinaisons profitables.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="phase-block reveal">
+                <div class="phase-header">
+                    <div class="phase-num-large">3</div>
+                    <div class="phase-info">
+                        <h4>DACH + Amazon + Repeat</h4>
+                        <p>DACH = terrain naturel pour premium suisse. Transformer le rituel cacao en bundles rentables.</p>
+                    </div>
+                    <div class="phase-period">JOURS 61–90</div>
+                </div>
+                <div class="phase-actions">
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                        <h5>DACH test</h5>
+                        <p>Localisation, créas DE, landing, logistique.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                        <h5>Amazon</h5>
+                        <p>Préparation + lancement si <strong>go/no-go</strong> validé (marge, ops).</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                        <h5>Klaviyo</h5>
+                        <p>5 flows essentiels + 2 campagnes/mois.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#risks">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CACAO INTERCHAPTER avec packshot -->
+    <div class="cacao-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.22)"></path>
+            <path d="M0,80 C180,130 360,30 540,80 C720,130 900,30 1080,80 C1140,98 1180,105 1200,110" fill="none" stroke="rgba(45,27,20,0.25)" stroke-width="2"></path>
+        </svg>
+    </div>
+    <div class="cacao-interchapter">
+        <div class="cacao-photo">
+            <img src="https://theobromabeauty.com/cdn/shop/files/criollo-serum-highlighting-illuminateur.png?v=1744899000&width=1466" alt="Sérum Criollo Théobroma - packshot lifestyle premium." loading="lazy">
+        </div>
+    </div>
+
+    <!-- CHAPITRE IX - RISK REGISTER -->
+    <section class="risk-register" id="risks">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre IX</div>
+            <h2 class="chapter-title">Risk Register</h2>
+            <p class="chapter-subtitle">Anticiper pour mieux exécuter.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="risk-content">
+            <div class="risk-grid reveal">
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>Discount fatigue</h5></div>
+                    <p class="parade">Caps promo max 15% · Bundles value > discount · Exclusivité membres</p>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>CAC qui grimpe</h5></div>
+                    <p class="parade">Stop-loss 150% cible · Diversification canaux · Focus repeat & LTV</p>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>Stock-outs best sellers</h5></div>
+                    <p class="parade">Buffer stock 20% top SKUs · Alertes seuil · Pre-order option</p>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>Platform policy changes</h5></div>
+                    <p class="parade">Multi-canal dès J1 · Owned media (email/SMS) · Diversification créateurs</p>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>Attribution floue</h5></div>
+                    <p class="parade">UTMs stricts · Tests holdout mensuels · MER comme pilotage global</p>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label"><div class="risk-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h5>Creative fatigue</h5></div>
+                    <p class="parade">Pipeline 5 créas/semaine · UGC rotatif · Formats variés</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#team">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE X - TEAM PROCESS -->
+    <section class="team-process" id="team">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre X</div>
+            <h2 class="chapter-title">Team & Process</h2>
+            <p class="chapter-subtitle">Coordination et cadences.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="team-content">
+            <p class="team-intro reveal">Une croissance mesurée demande des cadences claires : tests cadrés, validations rapides, learnings partagés.</p>
+            <div class="team-grid reveal">
+                <div class="team-card">
+                    <h5>Meeting créa hebdo</h5>
+                    <p>Revue performances, nouveaux angles, validation brand. 30 min max, deck standardisé.</p>
+                </div>
+                <div class="team-card">
+                    <h5>Backlog tests</h5>
+                    <p>Priorisation par impact × confiance × facilité. 3 tests max en parallèle. Durée min 7 jours.</p>
+                </div>
+                <div class="team-card">
+                    <h5>Naming conventions</h5>
+                    <p>Campagnes, ads, UTMs : structure claire pour analyse rapide et comparaison historique.</p>
+                </div>
+                <div class="team-card">
+                    <h5>Validation brand</h5>
+                    <p>Checklist tonalité, visuels, claims. Approval 24h max. Autonomie sur itérations mineures.</p>
+                </div>
+            </div>
+            <div class="raci-box reveal">
+                <h5>Qui décide quoi</h5>
+                <div class="raci-grid">
+                    <div class="raci-item"><span class="raci-who">CEO</span><span class="raci-what">Budget, nouveaux marchés, go/no-go canal</span></div>
+                    <div class="raci-item"><span class="raci-who">Growth (moi)</span><span class="raci-what">Arbitrage KPI, briefs créa, scale/cut daily</span></div>
+                    <div class="raci-item"><span class="raci-who">CM</span><span class="raci-what">Calendrier éditorial, communauté, engagement</span></div>
+                    <div class="raci-item"><span class="raci-who">Creative</span><span class="raci-what">Angles, scripts, UGC, production assets</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#cockpit">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CACAO DIVIDER léger -->
+    <div class="cacao-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.12)"></path>
+        </svg>
+    </div>
+
+    <!-- CHAPITRE XI - COCKPIT -->
+    <section class="cockpit" id="cockpit">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre XI</div>
+            <h2 class="chapter-title">Le Cockpit</h2>
+            <p class="chapter-subtitle">Piloter la croissance comme un rituel.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <p class="cockpit-intro reveal">Chaque semaine, le CEO reçoit une lecture simple : ce qui a vendu, coûté, appris, et ce qu'on décide.</p>
+        <div class="dashboard-preview reveal">
+            <div class="dashboard-header">
+                <h4>Weekly CEO Dashboard</h4>
+                <span>Chaque lundi 9h · <em>Valeurs illustratives</em></span>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dashboard-item"><span class="label">CA digital</span><span class="value">CHF 18.2K</span></div>
+                <div class="dashboard-item"><span class="label">CA TikTok Shop</span><span class="value">CHF 2.4K</span></div>
+                <div class="dashboard-item"><span class="label">MER global</span><span class="value">4.2</span></div>
+                <div class="dashboard-item"><span class="label">CAC blended</span><span class="value">CHF 21</span></div>
+                <div class="dashboard-item"><span class="label">AOV</span><span class="value">CHF 72</span></div>
+                <div class="dashboard-item"><span class="label">Marge estimée</span><span class="value">~68%</span></div>
+            </div>
+            <div class="dashboard-actions-grid">
+                <div class="dashboard-col">
+                    <h5>Décisions CEO (3)</h5>
+                    <ul>
+                        <li>Valider budget DE +€500</li>
+                        <li>Approuver bundle "Routine"</li>
+                        <li>Go/No-go Amazon prep</li>
+                    </ul>
+                </div>
+                <div class="dashboard-col">
+                    <h5>Actions Growth (3)</h5>
+                    <ul>
+                        <li>Lancer test créa UGC</li>
+                        <li>Couper campagne MER 1.8</li>
+                        <li>Setup tracking DACH</li>
+                    </ul>
+                </div>
+                <div class="dashboard-col">
+                    <h5>Besoin créa (2)</h5>
+                    <ul>
+                        <li>3 hooks nouveaux</li>
+                        <li>Vidéo routine complète</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-turn"><a href="#autrice">Chapitre suivant →</a></div>
+    </section>
+
+    <!-- CHAPITRE XII - AUTRICE -->
+    <section class="autrice" id="autrice">
+        <div class="chapter-header">
+            <div class="chapter-num">Chapitre XII</div>
+            <h2 class="chapter-title">L'Autrice</h2>
+            <p class="chapter-subtitle">Qui tient la plume.</p>
+            <div class="chapter-line"></div>
+        </div>
+        <div class="autrice-content">
+            <p class="autrice-intro reveal">J'ai une obsession : faire grandir une marque sans lui faire perdre son âme. Je viens de la beauté, je comprends la performance, et je sais automatiser ce qui doit l'être.</p>
+            <div class="autrice-grid reveal">
+                <div class="autrice-card">
+                    <div class="autrice-avatar">SC</div>
+                    <h4>Sonia Catic</h4>
+                    <p class="title">Digital Marketing & Growth</p>
+                    <div class="match-list">
+                        <div class="match-item">
+                            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                            <p><strong>Copywriting conversion</strong> — Rédaction qui vend</p>
+                        </div>
+                        <div class="match-item">
+                            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                            <p><strong>Luxe & Beauty</strong> — Gucci, Ladurée, Buzz Beauty</p>
+                        </div>
+                        <div class="match-item">
+                            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <p><strong>Marché Suisse</strong> — Romandie + bases DACH</p>
+                        </div>
+                        <div class="match-item">
+                            <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+                            <p><strong>TikTok native</strong> — @ayke.ia, 1.5K+ followers</p>
+                        </div>
+                        <div class="match-item">
+                            <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                            <p><strong>Multilingue</strong> — FR natif · EN C1 · DE B1 · Marché CH + bases DACH</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-section">
+                    <h4>Outils & Compétences</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div class="skill-name">Meta Ads</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="skill-name">Google Ads</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="skill-name">TikTok Ads</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><div class="skill-name">Shopify</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="skill-name">Klaviyo</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div class="skill-name">Make/Zapier</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><div class="skill-name">Airtable</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div class="skill-name">Pinterest</div></div>
+                        <div class="skill-item"><div class="skill-icon-box"><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg></div><div class="skill-name">AI Tools</div></div>
+                    </div>
+                    <div class="needs-box">
+                        <h5>Les accès pour démarrer Day 1</h5>
+                        <p>Shopify (admin), GA4, Meta Business Manager, Google Ads, Klaviyo, stock & marges par SKU, plan retail 2026. Avec ça, premiers résultats en 30 jours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉPILOGUE -->
+    <section class="epilogue">
+        <div class="chapter-num">Épilogue</div>
+        <h2 class="chapter-title">Croissance mesurée, rentabilité protégée.</h2>
+        <p class="epilogue-text">Disponible pour un échange de 20 minutes — je peux présenter un plan de pilotage KPI dès la première semaine.</p>
+        <a href="mailto:sonia.catic@hotmail.com" class="cta-button"><span>Tourner la dernière page</span><span>→</span></a>
+        <p class="cta-contact">+41 78 777 79 78 · sonia.catic@hotmail.com</p>
+    </section>
+
+    <footer>
+        <div class="footer-logo">THÉOBROMA × SONIA</div>
+        <p class="footer-text">Dossier préparé avec soin · Février 2026</p>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 800); });
+        
+        // Navbar scroll
+        const nav = document.getElementById('navbar');
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => { 
+            nav.classList.toggle('scrolled', window.pageYOffset > 50);
+            scrollTop.classList.toggle('visible', window.pageYOffset > 400);
+        });
+        
+        // Scroll to top button
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Burger menu avec aria
+        const burger = document.getElementById('burger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        function openMenu() {
+            burger.setAttribute('aria-expanded', 'true');
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-      });
-    });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-      reveals.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 90) {
-          el.classList.add('visible');
+        
+        function closeMenu() {
+            burger.setAttribute('aria-expanded', 'false');
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
+        
+        function toggleMenu() {
+            const isOpen = burger.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMenu() : openMenu();
+        }
+        
+        burger.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+        
+        // Fermer menu sur ESC
+        document.addEventListener('keydown', (e) => { 
+            if (e.key === 'Escape') closeMenu(); 
+        });
+        
+        // Fermer menu sur clic lien
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        // Smooth scroll avec support clavier
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            // Support Enter/Space pour accessibilité
+            anchor.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal, .phase-block');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
 </body>
 </html>
