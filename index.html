@@ -54,45 +54,58 @@
         .mobile-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .mobile-overlay.active { opacity: 1; visibility: visible; }
 
-        .scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--or-premium); color: var(--noir-profond); border: none; border-radius: 50%; cursor: pointer; z-index: 900; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .scroll-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 48px; height: 48px; background: var(--or-premium); color: var(--noir-profond); border: none; border-radius: 50%; cursor: pointer; z-index: 900; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); -webkit-tap-highlight-color: transparent; }
         .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
         .scroll-top:hover { background: var(--creme-nude); transform: translateY(-3px); }
-        .scroll-top svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .scroll-top:active { transform: translateY(0); }
+        .scroll-top svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+        
+        @media (max-width: 768px) {
+            .scroll-top { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
+        }
 
-        .mobile-menu { position: fixed; inset: 0; background: var(--noir-profond); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu { position: fixed; inset: 0; background: var(--noir-profond); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; padding: 2rem; }
         .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu ul { list-style: none; text-align: center; }
-        .mobile-menu li { margin: 0.8rem 0; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; }
+        .mobile-menu ul { list-style: none; text-align: left; width: 100%; max-width: 280px; }
+        .mobile-menu li { margin: 0.4rem 0; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; }
         .mobile-menu.active li { opacity: 1; transform: translateY(0); }
-        .mobile-menu.active li:nth-child(1) { transition-delay: 0.1s; }
-        .mobile-menu.active li:nth-child(2) { transition-delay: 0.12s; }
-        .mobile-menu.active li:nth-child(3) { transition-delay: 0.14s; }
-        .mobile-menu.active li:nth-child(4) { transition-delay: 0.16s; }
-        .mobile-menu.active li:nth-child(5) { transition-delay: 0.18s; }
-        .mobile-menu.active li:nth-child(6) { transition-delay: 0.2s; }
-        .mobile-menu.active li:nth-child(7) { transition-delay: 0.22s; }
-        .mobile-menu.active li:nth-child(8) { transition-delay: 0.24s; }
-        .mobile-menu.active li:nth-child(9) { transition-delay: 0.26s; }
-        .mobile-menu.active li:nth-child(10) { transition-delay: 0.28s; }
-        .mobile-menu.active li:nth-child(11) { transition-delay: 0.3s; }
-        .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--creme-nude); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--or-premium); }
-        .mobile-menu .chapter-num { font-size: 0.6rem; color: var(--or-premium); display: block; margin-bottom: 0.15rem; letter-spacing: 0.1em; }
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.07s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.09s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.11s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.13s; }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.17s; }
+        .mobile-menu.active li:nth-child(8) { transition-delay: 0.19s; }
+        .mobile-menu.active li:nth-child(9) { transition-delay: 0.21s; }
+        .mobile-menu.active li:nth-child(10) { transition-delay: 0.23s; }
+        .mobile-menu.active li:nth-child(11) { transition-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(12) { transition-delay: 0.27s; }
+        .mobile-menu.active li:nth-child(13) { transition-delay: 0.29s; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 400; color: var(--creme-nude); text-decoration: none; display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(201,168,124,0.1); }
+        .mobile-menu a:hover, .mobile-menu a:focus { color: var(--or-premium); }
+        .mobile-menu .chapter-num { font-size: 0.65rem; color: var(--or-premium); letter-spacing: 0.08em; min-width: 24px; }
 
         .hero { min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(45,27,20,0.92), rgba(74,44,42,0.78)), url("https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=1400") center/cover no-repeat; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 25% 35%, rgba(201,168,124,0.15) 0%, transparent 50%), radial-gradient(ellipse 50% 30% at 75% 65%, rgba(74,124,89,0.08) 0%, transparent 40%); }
         .hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: 0.04; pointer-events: none; }
         
         .cacao-divider { width: 100%; margin: 0; padding: 0; line-height: 0; }
-        .cacao-divider svg { width: 100%; height: 90px; display: block; }
+        .cacao-divider svg { width: 100%; height: 60px; display: block; }
         
-        .cacao-photo { max-width: 1100px; margin: 0 auto; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 50px rgba(45,27,20,0.12); }
-        .cacao-photo img { width: 100%; height: auto; display: block; max-height: 280px; object-fit: cover; }
+        .cacao-photo { max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(45,27,20,0.1); }
+        .cacao-photo img { width: 100%; height: 220px; object-fit: cover; object-position: center 40%; display: block; }
         
         .cacao-icon { width: 28px; height: 28px; vertical-align: middle; color: var(--or-premium); }
         
-        .cacao-interchapter { background: var(--creme-douce); padding: 3rem 5%; }
-        .cacao-interchapter .cacao-photo { margin-top: 1.5rem; }
+        .cacao-interchapter { background: var(--creme-douce); padding: 2rem 5%; }
+        .cacao-interchapter .cacao-photo { margin: 0 auto; }
+        
+        @media (max-width: 768px) {
+            .cacao-photo img { height: 160px; }
+            .cacao-divider svg { height: 40px; }
+            .cacao-interchapter { padding: 1.5rem 4%; }
+        }
         .hero-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 25% 35%, rgba(201,168,124,0.1) 0%, transparent 50%), radial-gradient(ellipse 50% 30% at 75% 65%, rgba(74,124,89,0.06) 0%, transparent 40%); }
         .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 800px; }
         .hero-chapter { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--or-premium); margin-bottom: 0.8rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
@@ -111,10 +124,17 @@
         .chapter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 400; color: var(--gris-intense); }
         .chapter-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--gris-doux); margin-top: 0.5rem; }
         .chapter-line { width: 40px; height: 1px; background: var(--or-premium); margin: 1.2rem auto 0; }
+        .platform-logo { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--blanc-pur); border-radius: 12px; color: var(--gris-intense); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .platform-logo svg { width: 32px; height: 32px; }
         .page-turn { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--or-pale); }
-        .page-turn a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris-doux); text-decoration: none; transition: all 0.3s ease; padding: 0.8rem 1.5rem; border-radius: 30px; border: 1px solid transparent; }
-        .page-turn a:hover, .page-turn a:focus { color: var(--or-premium); border-color: var(--or-pale); background: rgba(201,168,124,0.05); outline: none; }
-        .page-turn a:focus-visible { box-shadow: 0 0 0 2px var(--or-premium); }
+        .page-turn a { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gris-doux); text-decoration: none; transition: all 0.3s ease; padding: 1rem 2rem; border-radius: 30px; border: 1px solid var(--or-pale); background: var(--blanc-pur); min-height: 48px; min-width: 200px; }
+        .page-turn a:hover, .page-turn a:focus { color: var(--or-premium); border-color: var(--or-premium); background: rgba(201,168,124,0.08); outline: none; transform: translateY(-2px); }
+        .page-turn a:focus-visible { box-shadow: 0 0 0 3px rgba(201,168,124,0.3); }
+        .page-turn a:active { transform: translateY(0); }
+        
+        @media (max-width: 768px) {
+            .page-turn a { width: 100%; max-width: 280px; padding: 1.2rem 1.5rem; font-size: 0.85rem; }
+        }
 
         /* LEXIQUE */
         .lexique { background: var(--gris-intense); padding: 1.5rem 5%; }
@@ -142,10 +162,14 @@
         .scorecard-item::before { content: '○'; color: var(--or-premium); font-size: 0.6rem; }
         .theo-box { border-color: var(--or-premium); background: linear-gradient(135deg, var(--blanc-pur), rgba(201,168,124,0.1)); }
         .theo-box-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .theo-box-header .svg-icon-large { margin: 0; flex-shrink: 0; }
+        .theo-box-header .svg-icon-large { margin: 0; flex-shrink: 0; width: 40px; height: 40px; }
         .theo-box-header h4 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); }
-        .theo-box-image { margin-top: 1.5rem; border-radius: 12px; overflow: hidden; }
-        .theo-box-image img { width: 100%; height: 140px; object-fit: cover; display: block; }
+        .theo-box-image { margin-top: 1.5rem; border-radius: 10px; overflow: hidden; }
+        .theo-box-image img { width: 100%; height: 120px; object-fit: cover; object-position: center 60%; display: block; }
+        
+        @media (max-width: 768px) {
+            .theo-box-image img { height: 100px; }
+        }
         
         .product-visual { border-radius: 16px; overflow: hidden; margin: 2rem 0; }
         .product-visual img { width: 100%; height: auto; display: block; }
@@ -402,24 +426,41 @@
         @media (max-width: 1024px) {
             .nav-links { display: none; }
             .burger { display: block; }
-            .one-pager-grid, .paid-grid, .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: 1fr; }
+            .one-pager-grid, .paid-grid, .ops-grid, .amazon-grid { grid-template-columns: 1fr; }
             .promesse-grid, .autrice-grid, .omnicanal-grid, .team-grid { grid-template-columns: 1fr; }
             .lexique-content { gap: 1rem 2rem; }
+            .cro-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            section { padding: 4rem 5%; }
-            .chapter-title { font-size: 1.6rem; }
-            .hero-title { font-size: 2.2rem; }
-            .cas-grid { grid-template-columns: 1fr; }
+            section { padding: 3rem 5%; }
+            .chapter-title { font-size: 1.5rem; }
+            .chapter-subtitle { font-size: 0.9rem; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 0.95rem; }
+            .cas-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
             .phase-actions { grid-template-columns: 1fr; }
             .dashboard-grid, .risk-grid, .paid-kpi-grid, .budget-phases, .dashboard-actions-grid { grid-template-columns: 1fr; }
             .cas-result-grid { flex-direction: column; gap: 1rem; }
-            .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: repeat(2, 1fr); }
-            .lexique-content { flex-direction: column; align-items: center; gap: 0.8rem; }
+            .ops-grid, .amazon-grid { grid-template-columns: 1fr; }
+            .lexique-content { flex-direction: column; align-items: center; gap: 0.6rem; }
+            .lexique-item { text-align: center; }
+            .scorecard-grid { grid-template-columns: 1fr; }
+            .svg-icon-large { width: 40px; height: 40px; }
+            .platform-logo { width: 48px; height: 48px; }
+            .platform-logo svg { width: 28px; height: 28px; }
+            .promesse-intro { font-size: 1.1rem; }
+            .one-pager-card { padding: 1.5rem; }
+            .one-pager-card h4 { font-size: 0.95rem; }
+            .one-pager-card li { font-size: 0.8rem; padding: 0.4rem 0; }
         }
         @media (max-width: 480px) {
-            section { padding: 3rem 4%; }
-            .skills-grid, .cro-grid, .ops-grid, .amazon-grid { grid-template-columns: repeat(2, 1fr); }
+            section { padding: 2.5rem 4%; }
+            .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .cro-grid { grid-template-columns: 1fr; }
+            .cas-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 1.8rem; }
+            .chapter-title { font-size: 1.3rem; }
+            .raci-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
         }
         @media (hover: none) {
             .cro-item:hover, .skill-item:hover, .action-card:hover { transform: none; }
@@ -440,17 +481,19 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><span class="chapter-num">I</span><a href="#promesse" onclick="closeMenu()">La Promesse</a></li>
-            <li><span class="chapter-num">II</span><a href="#cas" onclick="closeMenu()">Le Cas</a></li>
-            <li><span class="chapter-num">III</span><a href="#paid" onclick="closeMenu()">Paid Media</a></li>
-            <li><span class="chapter-num">IV</span><a href="#cro" onclick="closeMenu()">CRO Sprint</a></li>
-            <li><span class="chapter-num">V</span><a href="#tiktok" onclick="closeMenu()">TikTok Shop</a></li>
-            <li><span class="chapter-num">VI</span><a href="#amazon" onclick="closeMenu()">Amazon Europe</a></li>
-            <li><span class="chapter-num">VII</span><a href="#omnicanal" onclick="closeMenu()">Omnicanal</a></li>
-            <li><span class="chapter-num">VIII</span><a href="#formule" onclick="closeMenu()">La Formule</a></li>
-            <li><span class="chapter-num">IX</span><a href="#risks" onclick="closeMenu()">Risques</a></li>
-            <li><span class="chapter-num">X</span><a href="#cockpit" onclick="closeMenu()">Cockpit</a></li>
-            <li><span class="chapter-num">XI</span><a href="#autrice" onclick="closeMenu()">L'Autrice</a></li>
+            <li><a href="#sommaire" onclick="closeMenu()"><span class="chapter-num">—</span>Sommaire</a></li>
+            <li><a href="#promesse" onclick="closeMenu()"><span class="chapter-num">I</span>La Promesse</a></li>
+            <li><a href="#cas" onclick="closeMenu()"><span class="chapter-num">II</span>Cas d'Usage</a></li>
+            <li><a href="#paid" onclick="closeMenu()"><span class="chapter-num">III</span>Paid Media</a></li>
+            <li><a href="#cro" onclick="closeMenu()"><span class="chapter-num">IV</span>CRO Shopify</a></li>
+            <li><a href="#tiktok" onclick="closeMenu()"><span class="chapter-num">V</span>TikTok Shop</a></li>
+            <li><a href="#amazon" onclick="closeMenu()"><span class="chapter-num">VI</span>Amazon Europe</a></li>
+            <li><a href="#omnicanal" onclick="closeMenu()"><span class="chapter-num">VII</span>Omnicanal</a></li>
+            <li><a href="#formule" onclick="closeMenu()"><span class="chapter-num">VIII</span>La Formule</a></li>
+            <li><a href="#risks" onclick="closeMenu()"><span class="chapter-num">IX</span>Risques</a></li>
+            <li><a href="#team" onclick="closeMenu()"><span class="chapter-num">X</span>Team</a></li>
+            <li><a href="#cockpit" onclick="closeMenu()"><span class="chapter-num">XI</span>Cockpit</a></li>
+            <li><a href="#autrice" onclick="closeMenu()"><span class="chapter-num">XII</span>L'Autrice</a></li>
         </ul>
     </div>
 
@@ -562,7 +605,7 @@
     </div>
     <div class="cacao-interchapter">
         <div class="cacao-photo">
-            <img src="https://theobromabeauty.com/cdn/shop/files/cosmetique-au-cacao.jpg?v=1706686265&width=1056" alt="Fèves de cacao, matière première premium Théobroma." loading="lazy">
+            <img src="https://theobromabeauty.com/cdn/shop/files/cosmetique-au-cacao.jpg?v=1706686265&width=1056" alt="Fèves de cacao, matière première premium Théobroma." loading="lazy" style="object-position: center 30%;">
         </div>
     </div>
 
@@ -598,7 +641,7 @@
                             <li><strong>Retail existant</strong> — Levier acquisition (QR → email → repeat online)</li>
                         </ul>
                         <div class="theo-box-image">
-                            <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soins-cosmetique.jpg?v=1706686092&width=600" alt="Main tenant une fève de cacao" loading="lazy">
+                            <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soins-cosmetique.jpg?v=1706686092&width=600" alt="Main tenant une fève de cacao" loading="lazy" style="object-position: center 45%; height: 100px;">
                         </div>
                     </div>
                     <div class="opportunity-box">
@@ -615,7 +658,7 @@
                         <li>Marques suisses bien perçues en DACH</li>
                     </ul>
                     <div class="product-visual" style="margin-top: 1.5rem;">
-                        <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=600" alt="Pot Théobroma sur poudre de cacao" loading="lazy" style="border-radius: 12px; max-height: 180px; width: 100%; object-fit: cover;" />
+                        <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=600" alt="Pot Théobroma sur poudre de cacao" loading="lazy" style="border-radius: 12px; height: 140px; width: 100%; object-fit: cover; object-position: center 70%;" />
                     </div>
                 </div>
             </div>
@@ -817,6 +860,11 @@
     <section class="tiktok-ops" id="tiktok">
         <div class="chapter-header">
             <div class="chapter-num">Chapitre V</div>
+            <div class="platform-logo" style="margin: 0 auto 1rem;">
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.1 18.4c-2.9 0-5.4-1.5-6.9-3.8v13.2c0 6.1-5 11.1-11.1 11.1S5 34 5 27.8s5-11.1 11.1-11.1c.6 0 1.1 0 1.6.1v5.5c-.5-.1-1.1-.2-1.6-.2-3.1 0-5.6 2.5-5.6 5.6s2.5 5.6 5.6 5.6 5.6-2.5 5.6-5.6V5h5.3c.5 4.6 4.2 8.2 8.9 8.6v4.8h-.8z" fill="currentColor"/>
+                </svg>
+            </div>
             <h2 class="chapter-title">TikTok Shop Europe</h2>
             <p class="chapter-subtitle">Checklist opérationnelle.</p>
             <div class="chapter-line"></div>
@@ -887,6 +935,13 @@
     <section class="amazon-europe" id="amazon">
         <div class="chapter-header">
             <div class="chapter-num">Chapitre VI</div>
+            <div class="platform-logo" style="margin: 0 auto 1rem;">
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.7 35.3c-6.5 4.8-15.9 7.4-24 7.4-11.4 0-21.6-4.2-29.3-11.2-.6-.5-.1-1.3.7-.9 8.3 4.9 18.6 7.8 29.3 7.8 7.2 0 15.1-1.5 22.4-4.6 1.1-.5 2 .7.9 1.5z" transform="translate(12 0)" fill="currentColor"/>
+                    <path d="M31.1 31.6c-.8-1.1-5.5-.5-7.6-.3-.6.1-.7-.5-.2-.9 3.7-2.6 9.8-1.9 10.5-1 .7.9-.2 7.1-3.7 10.1-.5.4-1 .2-.8-.4.8-1.9 2.5-6.4 1.8-7.5z" transform="translate(12 0)" fill="currentColor"/>
+                    <path d="M23.6 7.3v-2c0-.3.2-.5.5-.5h9.4c.3 0 .5.2.5.5v1.7c0 .3-.2.6-.6 1.1l-4.9 7c1.8 0 3.7.2 5.3 1.1.4.2.5.5.5.8v2.1c0 .3-.4.7-.7.5-3.1-1.6-7.2-1.8-10.6 0-.3.2-.7-.2-.7-.5V17c0-.4 0-1 .4-1.5l5.6-8.1h-4.9c-.3 0-.5-.2-.5-.5l-.3.4z" transform="translate(0 5)" fill="currentColor"/>
+                </svg>
+            </div>
             <h2 class="chapter-title">Amazon Europe</h2>
             <p class="chapter-subtitle">Checklist readiness.</p>
             <div class="chapter-line"></div>
@@ -1105,7 +1160,7 @@
     </div>
     <div class="cacao-interchapter">
         <div class="cacao-photo">
-            <img src="https://theobromabeauty.com/cdn/shop/files/criollo-serum-highlighting-illuminateur.png?v=1744899000&width=1466" alt="Sérum Criollo Théobroma - packshot lifestyle premium." loading="lazy">
+            <img src="https://theobromabeauty.com/cdn/shop/files/criollo-serum-highlighting-illuminateur.png?v=1744899000&width=1466" alt="Sérum Criollo Théobroma - packshot lifestyle premium." loading="lazy" style="object-position: center center; height: 250px;">
         </div>
     </div>
 
