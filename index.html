@@ -164,16 +164,27 @@
         .scorecard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
         .scorecard-item { font-size: 0.8rem; color: rgba(245,237,228,0.8); padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; align-items: center; gap: 0.5rem; }
         .scorecard-item::before { content: '○'; color: var(--or-premium); font-size: 0.6rem; }
-        .theo-box { border-color: var(--or-premium); background: linear-gradient(135deg, var(--blanc-pur), rgba(201,168,124,0.1)); }
-        .theo-box-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .theo-box-header .svg-icon-large { margin: 0; flex-shrink: 0; width: 40px; height: 40px; }
-        .theo-box-header h4 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gris-intense); }
-        .theo-box-image { margin-top: 1.5rem; border-radius: 10px; overflow: hidden; }
-        .theo-box-image img { width: 100%; height: 120px; object-fit: cover; object-position: center 60%; display: block; }
+        .theo-box { border: 2px solid var(--or-premium); background: var(--blanc-pur); border-radius: 16px; padding: 2rem; }
+        .theo-box-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--or-pale); }
+        .theo-icon { width: 44px; height: 44px; color: var(--or-premium); flex-shrink: 0; }
+        .theo-icon svg { width: 100%; height: 100%; }
+        .theo-box-header h4 { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gris-intense); }
+        .theo-points { display: grid; gap: 0.8rem; }
+        .theo-point { display: flex; align-items: flex-start; gap: 1rem; }
+        .point-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--or-premium); background: var(--or-pale); padding: 0.3rem 0.6rem; border-radius: 4px; min-width: 60px; text-align: center; flex-shrink: 0; }
+        .point-text { font-size: 0.85rem; color: var(--gris-doux); line-height: 1.5; }
         
-        @media (max-width: 768px) {
-            .theo-box-image img { height: 100px; }
+        @media (max-width: 480px) {
+            .theo-point { flex-direction: column; gap: 0.3rem; }
+            .point-label { min-width: auto; }
         }
+        
+        .tendances-card { background: linear-gradient(145deg, var(--gris-intense), var(--gris-moyen)); border-radius: 16px; padding: 2rem; color: var(--creme-nude); }
+        .tendances-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--or-premium); }
+        .tendances-grid { display: grid; gap: 0.6rem; }
+        .tendance-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; color: rgba(245,237,228,0.9); padding: 0.5rem 0; border-bottom: 1px solid rgba(201,168,124,0.15); }
+        .tendance-item:last-child { border-bottom: none; }
+        .tendance-icon { color: var(--vert-clean); font-weight: 600; }
         
         .product-visual { border-radius: 16px; overflow: hidden; margin: 2rem 0; }
         .product-visual img { width: 100%; height: auto; display: block; }
@@ -616,23 +627,20 @@
                     <div class="promesse-quote">Ma philosophie : tester vite, mesurer juste, scaler seulement quand la marge sourit.</div>
                     <div class="opportunity-box theo-box">
                         <div class="theo-box-header">
-                            <div class="svg-icon-large">
-                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cacao">
-                                    <path d="M32 6C44 6 54 19 54 32C54 48 42 58 32 58C22 58 10 48 10 32C10 19 20 6 32 6Z" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M32 10C28 16 26 22 26 32C26 42 28 49 32 54" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-                                    <path d="M32 10C36 16 38 22 38 32C38 42 36 49 32 54" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                            <div class="theo-icon">
+                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="32" cy="32" rx="14" ry="22" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M32 10C28 18 26 24 26 32C26 40 28 46 32 54" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                                    <path d="M32 10C36 18 38 24 38 32C38 40 36 46 32 54" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
                                 </svg>
                             </div>
                             <h4>Pourquoi Théobroma gagne</h4>
                         </div>
-                        <ul class="opportunity-list">
-                            <li><strong>Cacao = différenciant visuel</strong> — Ingrédient hero pour TikTok (texture, couleur, ritual)</li>
-                            <li><strong>Clean + premium</strong> — Panier naturellement élevé + repeat</li>
-                            <li><strong>Swiss Made</strong> — Confiance + prix premium accepté</li>
-                            <li><strong>Retail existant</strong> — Levier acquisition (QR → email → repeat online)</li>
-                        </ul>
-                        <div class="theo-box-image">
-                            <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soins-cosmetique.jpg?v=1706686092&width=600" alt="Main tenant une fève de cacao" loading="lazy" style="object-position: center 45%; height: 100px;">
+                        <div class="theo-points">
+                            <div class="theo-point"><span class="point-label">Cacao</span><span class="point-text">Différenciant visuel pour TikTok (texture, couleur, ritual)</span></div>
+                            <div class="theo-point"><span class="point-label">Premium</span><span class="point-text">Clean beauty = panier élevé + repeat naturel</span></div>
+                            <div class="theo-point"><span class="point-label">Swiss</span><span class="point-text">Confiance + prix premium accepté en DACH</span></div>
+                            <div class="theo-point"><span class="point-label">Retail</span><span class="point-text">Levier acquisition (QR → email → repeat online)</span></div>
                         </div>
                     </div>
                     <div class="opportunity-box">
@@ -642,27 +650,17 @@
                 </div>
                 <div class="tendances-card">
                     <h4>Tendances observées</h4>
-                    <ul class="tendances-list">
-                        <li>Social commerce en forte hausse (découverte + conversion)</li>
-                        <li>Retail-to-digital accélère (QR, email capture)</li>
-                        <li>Premium clean tire le panier moyen</li>
-                        <li>Marques suisses bien perçues en DACH</li>
-                    </ul>
-                    <div class="product-visual" style="margin-top: 1.5rem;">
-                        <img src="https://theobromabeauty.com/cdn/shop/files/cacao-soin-cosmetique.jpg?v=1706686181&width=600" alt="Pot Théobroma sur poudre de cacao" loading="lazy" style="border-radius: 12px; height: 140px; width: 100%; object-fit: cover; object-position: center 70%;" />
+                    <div class="tendances-grid">
+                        <div class="tendance-item"><span class="tendance-icon">↗</span><span>Social commerce en forte hausse</span></div>
+                        <div class="tendance-item"><span class="tendance-icon">↗</span><span>Retail-to-digital accélère</span></div>
+                        <div class="tendance-item"><span class="tendance-icon">↗</span><span>Premium clean tire le panier</span></div>
+                        <div class="tendance-item"><span class="tendance-icon">↗</span><span>Marques suisses fortes en DACH</span></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="page-turn"><a href="#cas">Chapitre suivant →</a></div>
     </section>
-
-    <!-- CACAO DIVIDER -->
-    <div class="cacao-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
-            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.15)"></path>
-        </svg>
-    </div>
 
     <!-- CHAPITRE II - CAS D'USAGE -->
     <section class="cas-usage" id="cas">
@@ -799,15 +797,6 @@
         </div>
         <div class="cro-content">
             <p class="cro-intro reveal">Avant de pousser le trafic, on optimise la conversion. Chaque point gagné = budget Ads économisé.</p>
-            <div class="theo-highlight reveal">
-                <div class="icon">
-                    <svg width="40" height="40" viewBox="0 0 64 64" fill="none"><path d="M50 14C34 14 18 26 14 44C30 48 46 36 50 14Z" stroke="currentColor" stroke-width="2"/><path d="M18 40C24 34 34 26 46 20" stroke="currentColor" stroke-width="2" opacity="0.7"/></svg>
-                </div>
-                <div class="content">
-                    <h5>Focus Théobroma</h5>
-                    <p>PDP "rituel cacao" : ingrédients clean + texture sensorielle + before/after. Bundles = Starter / Cure 14j / Routine complète.</p>
-                </div>
-            </div>
             <div class="cro-grid reveal">
                 <div class="cro-item">
                     <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
@@ -1227,13 +1216,6 @@
         </div>
         <div class="page-turn"><a href="#cockpit">Chapitre suivant →</a></div>
     </section>
-
-    <!-- CACAO DIVIDER léger -->
-    <div class="cacao-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
-            <path d="M0,70 C150,20 300,120 450,70 C600,20 750,120 900,70 C1050,20 1150,110 1200,80 L1200,140 L0,140 Z" fill="rgba(201,168,124,0.12)"></path>
-        </svg>
-    </div>
 
     <!-- CHAPITRE XI - COCKPIT -->
     <section class="cockpit" id="cockpit">
